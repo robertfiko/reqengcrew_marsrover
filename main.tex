@@ -1,7 +1,7 @@
-
-\documentclass{scrreprt}
+\documentclass{report}
 \usepackage{listings}
 \usepackage{underscore}
+\usepackage{todonotes}
 \usepackage[bookmarks=true]{hyperref}
 \hypersetup{
     bookmarks=false,    % show bookmarks bar?
@@ -16,36 +16,55 @@
     urlcolor=purple,        % color of external links
     linktoc=page            % only page is linked
 }%
-\def\myversion{1.0 }
+
+
+
 \title{%
-\flushright
-\rule{16cm}{5pt}\vskip1cm
-\Huge{SOFTWARE REQUIREMENTS\\ SPECIFICATION}\\
+
+
+\Huge{KÖVETELMÉNYELEMZÉS}\\
 \vspace{2cm}
-for\\
+
+Marsjáró\\
 \vspace{2cm}
-Materials Ordering System\\
+
+projekthez\\
 \vspace{2cm}
-\LARGE{Release 1.0\\}
+
+\LARGE{Verzió 1.0\\}
 \vspace{2cm}
-\LARGE{Version \myversion approved\\}
+
 \vspace{2cm}
-Prepared by Yiannis Lazarides\\
+Készítették: [tagok]\\ % todo!
 \vfill
-\rule{16cm}{5pt}
+
 }
 \date{}
 \usepackage{hyperref}
 \begin{document}
+\listoftodos
 \maketitle
 \tableofcontents
-\chapter*{Revision History}
-\chapter{Introduction}
-Reqeng of the mars driver project.
-\section{Purpose}
-\section{Project Scope and Product Features}
-\section{References}
-\chapter{Overall Description}
+
+
+\chapter{Revision History}
+\todo{Revíziós tábla hozzáadása}
+
+\chapter{Projekt bemutatása}
+\todo{Néhány gondolat a projekt bemutatására}
+
+\chapter{Követelmények}
+\section{Követelmények felépítése}
+\section*{Megvalósítás lépései}
+\section*{...}
+\todo{További szerkezet megadása}
+
+\chapter{Szójegyzék}
+
+\section{References (??)}
+
+
+\chapter{Overall Description TODO: REMOVE or REDESIGN}
 Megjegyzések, tanácsok a feladatokkal kapcsolatban                    
 A rövid feladatkiírások csupán egy ügyfél elsokörös, magas szintugondolatait mutatják arról, hogy mit szeretne, nem fedik le a részleteket, speciális eseteket, tartalmazhatnak ellentmondásokat...stb.
 Ellentmondások keresése
