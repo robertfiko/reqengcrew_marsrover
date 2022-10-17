@@ -1,8 +1,7 @@
 # reqengcrew_marsrover
 :octopus::moon::volcano::earth_africa:
 
-[Kérdések a konzira](https://github.com/JNSchwartz/reqengcrew_marsrover/blob/main/questions_1024.md)
-[Marsjáró reqdok](https://docs.google.com/document/d/1QTqSyL6FfPUtAGGvmqpJOfm9-HwGpXEQLqBqYxoJ_7I/edit)
+[Kérdések a konzira](https://github.com/JNSchwartz/reqengcrew_marsrover/blob/main/questions_1024.md) - [Marsjáró reqdok](https://docs.google.com/document/d/1QTqSyL6FfPUtAGGvmqpJOfm9-HwGpXEQLqBqYxoJ_7I/edit)
 
 
 Lippa Katalin: @katilippa
