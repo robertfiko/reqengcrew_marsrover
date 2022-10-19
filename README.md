@@ -22,6 +22,6 @@ Miskolczi Péter: @BreadKingGod
 
 Cseresnyés Kristóf: @aPisC
 
-Novák-Schwartz József: @NSchwartz
+Novák-Schwartz József: @JNSchwartz
 
 Szerednik László Tamás: @szeredniklaszlo
