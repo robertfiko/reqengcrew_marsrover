@@ -23,141 +23,112 @@
 \title{%
 
 
-\Huge{KÖVETELMÉNYELEMZÉS}\\
+\Huge{Követelményelemzés}\\
 \vspace{2cm}
 
-Marsjáró\\
-\vspace{2cm}
-
-projekthez\\
+Marsjáró jármű\\
 \vspace{2cm}
 
 \LARGE{Verzió 1.0\\}
 \vspace{2cm}
 
 \vspace{2cm}
-Készítették: [tagok]\\ % todo!
-\vfill
-
+Készítették:
+Cseresnyés Kristóf: @aPisC
+Fikó Róbert: @robertfiko
+Gőgös Márton: @Marzyh
+Hosek Henrietta: @hosekhenrietta
+Kurucz Ádám: @engreyight
+Lippa Katalin: @katilippa
+Miskolczi Péter: @BreadKingGod
+Monhor Hubert: @dopamean
+Novák-Schwartz József: @JNSchwartz
+Szabó Tihamér: @SzaboTihi14
+Szerednik László Tamás: @szeredniklaszlo
 }
-\date{}
+%\date{}
+\today
 \usepackage{hyperref}
 \begin{document}
-\listoftodos
 \maketitle
 \tableofcontents
-
-
-\chapter{Revision History}
 \begin{versionhistory}
   \vhEntry{1.0}{22.10.23}{Novák-Schwartz József}{1st revision}
   \vhEntry{1.1}{23.01.04}{DP|JPW}{correction}
   \vhEntry{1.2}{03.02.04}{DP|JPW}{revised after review}
 \end{versionhistory}
 \chapter{Projekt bemutatása}
-\todo{Néhány gondolat a projekt bemutatására}
-
+Mars projekt
+A NASA a Mars emberekkel történő felfedezéséhez magáncégek pályázatát várja a szükséges hardver és szoftverelemek kifejlesztéséhez az alábbi témakörökben:
+\begin{enumerate}
+  \item Marsbázis
+  \item Marsjáró jármű
+  \item Ellátmányűrhajó
+  \item Mars-járó jármű
+\end{enumerate}
+Készítsen specifikációt 2 Mars-járó járműre az alábbiakat figyelembe véve:
+\begin{itemize}
+  \item A járműveknek maximum 4 ember ellátását kell biztosítaniuk a Mars-járó missziók
+időtartamára
+  \item A jármű élettartama minimum 5 év legyen a Marsi körülmények között
+  \item A járműnek lehetőséget kell biztosítania az űrhajósok kiszállására és beszállására
+közvetlenül a Marsra vagy a marsi bázisra
+  \item A jármű képes legyen a misszióhoz szükséges segédfelszerelések szállítására, vizsgálatok
+elvégzésére, valamint a begyűjtött kőzetminták szállítására
+  \item Az eszközhöz csatlakozzon egy repülni képes, felderítő drón
+  \item A járműnek képesnek kell lennie kommunikálnia a Marsbázissal és a Mars körül keringő
+átjátszó műholdakkal valamint űrállomással
+  \item Végezzen kockázatanalízist és a szükséges alrendszereknél alkalmazzon redundanciát
+  \item A főbb alrendszereknek javíthatónak és cserélhetőnek kell lennie az ellátmány bázis
+alkatrészei alapján
+\end{itemize}
 \chapter{Követelmények}
-\section{Követelmények felépítése}
-\section*{Megvalósítás lépései}
-\section*{...}
-\todo{További szerkezet megadása}
+\section{Megvalósítás lépései}
+\begin{itemize}
+  \item Földi tervezés.
+  \item Földi prototipizálás.
+  \item Földi tesztelés. (Antarktisz és vulkán.)
+  \item Holdi tesztelés.
+  \item Marsi tesztelés?
+  \item Marsi szállítás.
+\end{itemize}
+\section{Mérnöki követelmények}
+\begin{itemize}
+  \item A marsjáró mérete x*y*z.
+  \item A marsjáró kereke (?).
+  \item A marsi körülményeknek ellenálló anyag ?titánium?, ebböl készül a külsö ?n? réteg.
+\end{itemize}
+\section{Humán követelmények}
+\begin{itemize}
+  \item A marsjárón szkafander nélküli környezetet kell biztosítani. (Szobahömérséklet, levegö.)
+  \item A marsjáron biztosítani kell a szkafanderek töltését ->bázissal egyezö módon.
+  \item A küldetésekhez elegendö ételek tárolása és ivóvíz biztosítása is feltétel.
+  \item Alapvetö higiénés és rekreációs szükségletek biztosítása feltétel.
+\end{itemize}
+\section{Kutatási követelmények}
+\begin{itemize}
+  \item A marsjáróra mintavételezéshez szükséges egy fúrót felszerelni.
+  \item A begyüjött mintaásványokon kisebb laborvizsgálatokat el kell tudni végezni, mint pl. centrifugálás.
+  \item Z köbméter ásvány ->bázisra való visszaszállítását kell biztosítani.
+\end{itemize}
+\section{Biztonsági követelmények}
+\begin{itemize}
+  \item Az esetleges katasztrófaesemények esetén is biztosítani kell a személyzet ->bázisra való visszajutását.
+\end{itemize}
+\section{Utókövetelmények}
+\begin{itemize}
+  \item A marsjáró leszerelése és kezelése mint hulladék.
+  \item A marsjáró által okozott esetleges természeti károk helyreállítási terve.
+\end{itemize}
 
 \chapter{Szójegyzék}
+\section{Marsi fogalmak}
+\begin{itemize}
+  \item A marsi gravitáció x.
+  \item A marsi év y. A fentiekben mi földi évben számolunk.
+  \item A mars átlaghömérséklete z. k és j között ingadozik.
+  \item A marsi UV l. Ez a földihez képest f/l, ami az eszközök élettartamát befolyásolja.
+\end{itemize}
 
 \section{References (??)}
-
-
-\chapter{Overall Description TODO: REMOVE or REDESIGN}
-Megjegyzések, tanácsok a feladatokkal kapcsolatban                    
-A rövid feladatkiírások csupán egy ügyfél elsokörös, magas szintugondolatait mutatják arról, hogy mit szeretne, nem fedik le a részleteket, speciális eseteket, tartalmazhatnak ellentmondásokat...stb.
-Ellentmondások keresése
-alacsonyabb szintre fordítás
-részletek
-speciális esetek (pl. marsi vagy földi év?)
-Ajánlott az első egyeztetés előtt kicsit képbe kerülni a tématerülettel
-Puli marsjáró projekt utánajárás
-+ kutatás és csapat felé prezentálása (még konzultáció előtt)
-A feladat része a feladat pontosítása, megbeszélése az ügyféllel. Adott esetben szükséges az ügyfél figyelmét felhívni arra, hogy valamire nem gondolt  ellentmondás van a kéréseiben  kérése egyéb okok miatt nem megvalósítható    
-valamire nem gondolt
-kérése egyéb okok miatt nem megvalósítható
-A feladat része az is, hogy egy funkció megvalósítására alternatívákat kínálunk    
-alternatívák
-Fontos, hogy az egyes döntéseket az ügyféllel egyeztetve, vele egyetértésben kell meghozni
-kérdések előkészítése ügyfélnek
-A feladatok olyanok, hogy 3-3 csapat 1-1 közös célt valósít meg; emiatt az egyeztetés a csapatok között a közös részek tekintetében elkerülhetetlen
-kapcsolat keresése Marsbázis projekttel
-Heni
-kapcsolat keresése Ellátmányürhajóval
-Tihi
-Az egyeztetésnél a csapat egységesen lépjen fel az ügyféllel való kommunikációban. Kérdezhetnek többen is, de csapaton belüli esetleges kommunikációs hiányosságokat, inkonzisztenciákat, törésvonalakat ne mutassuk az ügyfélnek.
-5.a + performansz előkészítése, elpróbálása (legyen legalább 10-12 perc aktív tervünk, és hagyjunk helyet az ügyfél válaszára, ha nem tudunk csak 7 percnyi kérdést felvetni, akkor marad következő alkalomra  az ügyfél pontosításból már invalidálódhatnak eddigi kérdéseink)
-kérjük meg, hogy felvétel készülhessen, amiből scriptet vezessünk fel ide
-ha ez nem lehetséges, akkor valaki pontosan gyorsan gépírja, jegyzetelje le
-Minden csapat jelöljön ki egy elsődleges kapcsolattartó embert! Robi
-2. Mars-járó jármű
-Készítsen specifikációt 2 Mars-járó (gravitacio, guruló, hegymászó, repülö, vagy lábakon járó?) járműre az alábbiakat figyelembe véve:
-• A járműveknek maximum (minimum van? önjáró képesség igény-e?) 4 ember ellátását (oxigén, élelmezés, higiéniai szükségletek) kell biztosítaniuk a Mars-járó missziók időtartamára (milyen hosszú 1-1 misszió, mennyi idö telik el két misszió között karbantartási és ellátmánypótlási feladatokra)
-• A jármű élettartama minimum 5 év (marsi vagy földi év?) legyen a Marsi körülmények (utánajárás hogy mivel számoljunk) között
-• A járműnek lehetőséget kell biztosítania az űrhajósok kiszállására és beszállására
-közvetlenül a Marsra vagy a marsi bázisra (bázissal konzultálni)
-• A jármű képes legyen a misszióhoz szükséges segédfelszerelések szállítására, vizsgálatok
-elvégzésére, valamint a begyűjtött kőzetminták szállítására
-• Az eszközhöz csatlakozzon egy repülni képes, felderítő drón
-• A járműnek képesnek kell lennie kommunikálnia a Marsbázissal és a Mars körül keringő
-átjátszó műholdakkal valamint űrállomással
-• Végezzen kockázatanalízist és a szükséges alrendszereknél alkalmazzon redundanciát
-• A főbb alrendszereknek javíthatónak és cserélhetőnek kell lennie az ellátmány bázis
-alkatrészei alapján
-
-Todok
-
-todo: where to collaborate? 
-Robi: megcsinálom a pinned postot, a gyűjtéshez
-
-Potenciális kommunikációs ember: Robi
-
-
-Heninek: 
-töltőállomások a bázison
-Kiszállás hogy legyen?
-Kommunikacio
-Kérdések
-
-0. kérdés: van-e komunikáció az órán kívül?
-0.1: ha igen, akkor az csak 1 ember legyen-e?
-0.2: az órán is csak 1 ember kommunikáljon az ügyféllel? 
-bemehetünk-e a többi mars konzultációra megfigyelöként?
-csatlakozhatnak-e a nem élöben teamsen a távoli tagok?
-készíthetünk-e felvételt pl. teamssel?
-ha nem, akkor jegyzökönyvezni kell -> legalább 2 fö kell a személyesre
-backup: Józsi
-Van-e igény arra, hogy miképpen “járjon” a Mars-járó?
-Van-e minimum személyzet igény- legyen-e ön-távmüködö?
-Marsi vagy földi év? Földi
-Milyen hosszú 1-1 misszió, mennyi idö telik el két misszió között karbantartási és ellátmánypótlási feladatokra? (Ellatmanyurhajo csapat) 20 Nap, fél nap
-Öntöltés requirement-e?/Töltöállomások?(Bázissal kommunikálni.)
-Kell-e mennie nagyon hidegben? szélöseg -60 fok, de minden körülményt ki kell birni
-De ha sem, akkor kell-e fütést biztosítani? 22 fok
-Vagy a szkafander füt-e? igen
-Azt kell-e tölteni? igen
-Pótolni?
-Milyen javíthatósági képesség legyen? Pl. bázis, másik járó, önmaga? potalkatreszek, zsiliprendszer
-Hány ajtós legyen? Zsilip es bazis ajtó, ezek mas magasságba vannak
-Hogy képzeli el a felszerelések szállításat? 20 cmes kockák, kell tudni fúrni
-Milyen vizsgalatokra tart igenyt?kell furofej, hoparologtatasos vizsgalat, levágni megfelelő nagyságú 
-mekkora kozetek? oklomnyi/olympus. 800kg, masfel tonna
-Csak a Marsjáró irányitsa-e a dront? biztonsagi funkcioknak alapvető vezérlés, de ember is iranyítja Mekkora hataskor? 100m? 4,5 km és autómatikusan visszatalál
-Milyen alrendszereknek kell biztositanunk a redundanciajat? Milyen mertekben? Marsi vihart is tul kell-e elnie? igen, de nem kell alatta mintat venni
- ellatmanyurhajo rank is szallhat, vagy mindig a bazisra?
-Budget? 
-Qa
-Functional
-And nonfunctional
-Design
-Mit tudunk a megrendelőről, piaci vagy állami? 
-Milyen külső követelményeknek kell megfelelnünk? Todo: van-e személyszállítási ISO, ha igen mi, ennek meg kell-e felelni? 
-\section{Product Perspective}
-\section{User Classes and Characteristics}
-% add other chapters and sections to suit
 \end{document}
