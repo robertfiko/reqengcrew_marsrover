@@ -19,7 +19,16 @@
 - modularitás (útközbeni fejlesztések, amik az ellátmánnyal jöhet)
 - környezetvédelmi szempontok, lebomlás, magára hagyjuk a marson? radioaktív?
 - mennyi kell? 2 db kell azért mert 2x5 év vagy 2x2x5 év, hogy mindig legyen 2 db
+- milyen mérföld köveket szeretne látni?
+- hogyan fogja a bázis karbantartani a jármávet?
+- milyen tér felosztása legyen?
 
 
 
 - határidő?
+
+
+# Bázis kapcsolat
+
+- zsilip az űrbázissal és nem garázs
+- egy fuvar kör 20 tonna, 8 méter átmérőjű 15 méter hosszú henger, 10 körbe megy fel a bázis, külön köre van a marsjárósnak
