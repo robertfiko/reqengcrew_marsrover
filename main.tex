@@ -1,7 +1,7 @@
 \documentclass{report}
 \usepackage{listings}
 \usepackage{underscore}
-\usepackage{todonotes}
+\usepackage{vhistory}
 \usepackage[bookmarks=true]{hyperref}
 \hypersetup{
     bookmarks=false,    % show bookmarks bar?
@@ -22,44 +22,110 @@
 \title{%
 
 
-\Huge{KÖVETELMÉNYELEMZÉS}\\
+\Huge{Követelményelemzés}\\
 \vspace{2cm}
 
-Marsjáró\\
+Marsjáró jármű\\
 \vspace{2cm}
 
-projekthez\\
+\LARGE{Verzió 1.0}
 \vspace{2cm}
 
-\LARGE{Verzió 1.0\\}
-\vspace{2cm}
-
-\vspace{2cm}
-Készítették: [tagok]\\ % todo!
-\vfill
-
+Készítették:\\
+Cseresnyés Kristóf: @aPisC\\
+Fikó Róbert: @robertfiko\\
+Gőgös Márton: @Marzyh\\
+Hosek Henrietta: @hosekhenrietta\\
+Kurucz Ádám: @engreyight\\
+Lippa Katalin: @katilippa\\
+Miskolczi Péter: @BreadKingGod\\
+Monhor Hubert: @dopamean\\
+Novák-Schwartz József: @JNSchwartz\\
+Szabó Tihamér: @SzaboTihi14\\
+Szerednik László Tamás: @szeredniklaszlo\\
 }
 \date{}
 \usepackage{hyperref}
 \begin{document}
-\listoftodos
 \maketitle
 \tableofcontents
-
-
-\chapter{Revision History}
-\todo{Revíziós tábla hozzáadása}
-
+\begin{versionhistory}
+  \vhEntry{1.0}{22.10.23}{Novák-Schwartz József}{1st revision}
+  \vhEntry{1.1}{23.01.04}{DP|JPW}{correction}
+  \vhEntry{1.2}{03.02.04}{DP|JPW}{revised after review}
+\end{versionhistory}
 \chapter{Projekt bemutatása}
-\todo{Néhány gondolat a projekt bemutatására}
-
+Mars projekt
+A NASA a Mars emberekkel történő felfedezéséhez magáncégek pályázatát várja a szükséges hardver és szoftverelemek kifejlesztéséhez az alábbi témakörökben:
+\begin{enumerate}
+  \item Marsbázis
+  \item Marsjáró jármű
+  \item Ellátmányűrhajó
+  \item Mars-járó jármű
+\end{enumerate}
+Készítsen specifikációt 2 Mars-járó járműre az alábbiakat figyelembe véve:
+\begin{itemize}
+  \item A járműveknek maximum 4 ember ellátását kell biztosítaniuk a Mars-járó missziók
+időtartamára
+  \item A jármű élettartama minimum 5 év legyen a Marsi körülmények között
+  \item A járműnek lehetőséget kell biztosítania az űrhajósok kiszállására és beszállására
+közvetlenül a Marsra vagy a marsi bázisra
+  \item A jármű képes legyen a misszióhoz szükséges segédfelszerelések szállítására, vizsgálatok
+elvégzésére, valamint a begyűjtött kőzetminták szállítására
+  \item Az eszközhöz csatlakozzon egy repülni képes, felderítő drón
+  \item A járműnek képesnek kell lennie kommunikálnia a Marsbázissal és a Mars körül keringő
+átjátszó műholdakkal valamint űrállomással
+  \item Végezzen kockázatanalízist és a szükséges alrendszereknél alkalmazzon redundanciát
+  \item A főbb alrendszereknek javíthatónak és cserélhetőnek kell lennie az ellátmány bázis
+alkatrészei alapján
+\end{itemize}
 \chapter{Követelmények}
-\section{Követelmények felépítése}
-\section*{Megvalósítás lépései}
-\section*{...}
-\todo{További szerkezet megadása}
+\section{Megvalósítás lépései}
+\begin{itemize}
+  \item Földi tervezés.
+  \item Földi prototipizálás.
+  \item Földi tesztelés. (Antarktisz és vulkán.)
+  \item Holdi tesztelés.
+  \item Marsi tesztelés?
+  \item Marsi szállítás.
+\end{itemize}
+\section{Mérnöki követelmények}
+\begin{itemize}
+  \item A marsjáró mérete x*y*z.
+  \item A marsjáró kereke (?).
+  \item A marsi körülményeknek ellenálló anyag ?titánium?, ebböl készül a külsö ?n? réteg.
+\end{itemize}
+\section{Humán követelmények}
+\begin{itemize}
+  \item A marsjárón szkafander nélküli környezetet kell biztosítani. (Szobahömérséklet, levegö.)
+  \item A marsjáron biztosítani kell a szkafanderek töltését ->bázissal egyezö módon.
+  \item A küldetésekhez elegendö ételek tárolása és ivóvíz biztosítása is feltétel.
+  \item Alapvetö higiénés és rekreációs szükségletek biztosítása feltétel.
+\end{itemize}
+\section{Kutatási követelmények}
+\begin{itemize}
+  \item A marsjáróra mintavételezéshez szükséges egy fúrót felszerelni.
+  \item A begyüjött mintaásványokon kisebb laborvizsgálatokat el kell tudni végezni, mint pl. centrifugálás.
+  \item Z köbméter ásvány ->bázisra való visszaszállítását kell biztosítani.
+\end{itemize}
+\section{Biztonsági követelmények}
+\begin{itemize}
+  \item Az esetleges katasztrófaesemények esetén is biztosítani kell a személyzet ->bázisra való visszajutását.
+\end{itemize}
+\section{Utókövetelmények}
+\begin{itemize}
+  \item A marsjáró leszerelése és kezelése mint hulladék.
+  \item A marsjáró által okozott esetleges természeti károk helyreállítási terve.
+\end{itemize}
 
 \chapter{Szójegyzék}
+\section{Marsi fogalmak}
+\begin{itemize}
+  \item A marsi gravitáció x.
+  \item A marsi év y. A fentiekben mi földi évben számolunk.
+  \item A mars átlaghömérséklete z. k és j között ingadozik.
+  \item A marsi UV l. Ez a földihez képest f/l, ami az eszközök élettartamát befolyásolja.
+\end{itemize}
 
 \section{References (??)}
 
