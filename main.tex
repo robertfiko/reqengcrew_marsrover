@@ -1,7 +1,8 @@
-\documentclass{report}
+\documentclass[12pt]{report}
 \usepackage{listings}
 \usepackage{underscore}
 \usepackage{vhistory}
+\usepackage{setspace}
 \usepackage[bookmarks=true]{hyperref}
 \hypersetup{
     bookmarks=false,    % show bookmarks bar?
@@ -17,9 +18,18 @@
     linktoc=page            % only page is linked
 }%
 
+\usepackage{geometry}
+\geometry{margin=1.5in}
+\onehalfspacing
+
+
+\usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
+\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 
 
 \title{%
+
+
 
 
 \Huge{Követelményelemzés}\\
@@ -31,6 +41,7 @@ Marsjáró jármű\\
 \LARGE{Verzió 1.0}
 \vspace{2cm}
 
+\small{
 Készítették:\\
 Cseresnyés Kristóf: @aPisC\\
 Fikó Róbert: @robertfiko\\
@@ -44,15 +55,22 @@ Novák-Schwartz József: @JNSchwartz\\
 Szabó Tihamér: @SzaboTihi14\\
 Szerednik László Tamás: @szeredniklaszlo\\
 }
+}
 \date{}
 \usepackage{hyperref}
+
+
+
 \begin{document}
+
 \maketitle
+
 \tableofcontents
 \begin{versionhistory}
   \vhEntry{1.0}{22.10.23}{Novák-Schwartz József}{1st revision}
   \vhEntry{1.1}{23.01.04}{DP|JPW}{correction}
   \vhEntry{1.2}{03.02.04}{DP|JPW}{revised after review}
+  \vhEntry{1.3}{22.11.06}{Robert Fiko}{Subsystems, risk analysis and formatting}
 \end{versionhistory}
 \chapter{Projekt bemutatása}
 Mars projekt
@@ -95,6 +113,72 @@ alkatrészei alapján
   \item A marsjáró kereke (?).
   \item A marsi körülményeknek ellenálló anyag ?titánium?, ebböl készül a külsö ?n? réteg.
 \end{itemize}
+
+\subsection{A jármű alrendszerei\label{subsytems}}
+
+A biztonságos és megbízható működés, illetve a modularitás elveinek betartása végett a 
+járművet alrendszerekre bontjuk.
+
+\subsubsection{Navigáció}
+A navigációs alrendszer célja, a vezetőt ellátni információkkal a terepviszonyokról, útvonalat tervezni a marsi felszínen, illetve egy bizonyos szintű önvezetést megvalósítani.
+
+Érzékelők tekintetében szükséges:
+\begin{itemize}
+  \item XYZ ultrahangos érzékelő 
+  \item XYZ kamera 
+  \item XYZ számítógépes egység (az adatok feldolgozásához)
+\end{itemize}
+
+
+\subsubsection{Meghajtás}
+
+Marsjáró révén, a meghajtás is fontos kérdés, TODO: meghajtásos kolléga
+
+Ötletek:
+
+- mobility
+
+  - the driving mechanism e.g. motors, enginges
+
+  - the (micro)controllers for them
+
+\subsubsection{Létfentartás}
+
+Természetesen az emberi személyzet végett, a létfenntartó rendszerek elengedhetetlenek. XYZ típusú levegő szűrő és széndioxid kivonó rendszerrel és XYZ típusú vízújrahasznosító rendszerrel fogjuk felszerelni. Az utóbbi képes a levegő páratartalmát kivonni, illetve vizeletet tisztítani, így végül fogyasztásra alkalmas ivóvizet kapunk.
+
+Az asztronautáknak a megfelelő hőmérséklet biztosítására az XYZ típusú fűtő berendezést szereljük, mivel a marsi hőmörséklet nem haladja meg a 21 Celsius fokot, így fűtés biztosítása elegendő.
+
+Forrás: https://www.weather.gov/fsd/mars
+TODO: cite
+
+\subsubsection{Telekommunikáció}
+
+A telekommunkációhoz XYZ típusú, PRZ paraméterű antennákat és XYZ típusú jelfeldolgozó egységeket fogunk használni.
+
+TODO: kérdés, bázissal kommunikációs frekvencia
+
+
+
+\subsubsection{Energiaellátás}
+
+TODO:
+
+ötletek:
+- power
+  - managing the power in the rover
+  - how electric power is flowing in the vechile
+
+\subsubsection{Szenzorok} 
+
+TODO: 
+ötletek:
+
+- sensory
+  - manages the sensors and tools used for scientific research
+  - analysis the data from them
+  - stores (redundantly)
+
+
 \section{Humán követelmények}
 \begin{itemize}
   \item A marsjárón szkafander nélküli környezetet kell biztosítani. (Szobahömérséklet, levegö.)
@@ -109,6 +193,31 @@ alkatrészei alapján
   \item Z köbméter ásvány ->bázisra való visszaszállítását kell biztosítani.
 \end{itemize}
 \section{Biztonsági követelmények}
+
+A biztonságos misszióhoz elengedhetetlen a jármű kockázat analaízise, mely során annak alrendszereit feltérképezzük és a kritikusakat meghatározzuk. 
+
+\subsection{Kockázat analízis}
+
+
+
+A kockázat analízis célja, hogy a \ref{subsystems} fejezetben részletezett alrendszerek közül melyek a kritkus rendszerek és mennyire fontosak. A legnyílvánvalóbb az energia ellátó alrendszer, hiszen ha nincsen enerigai hiába van létfentartó rendszer vagy bármi más. Ha nincsen energia, akkor nem várható el egyik alrendszertől, vagy tartalékrendszertől sem, hogy működjön.
+
+TODO: honna van energia, milyen energia hordozó, aztán tartalék akkumlátor, esetleg dízel generátor
+
+Miután a járműnek van redundás energiaforrása, a létfenntartó rendszert fontos megvizsgálni. Az tényként kezelendő, hogy a fedélzeten utazó űrhajósokat életben kell tartni, így ezen rendszereknek is szükséges tartalékot képezni, legalább a levegő- és vízkezelés illetve a fűtés szintjén. 
+
+\textit{Megjegyzés: A rover tartalékrendszerein túl az utasok bármikor felvehetik a szkafander sisakjukat, így akár egy harmadfokú renduncacnia is elérhető.}
+
+A fent említett rendszereken túl, a harmadik a sorban a telekommunkációs rendszerek, hogy a kutatók tudjanak segítséget kérni a bázistól, vagy a másik rovertól amennyiben szükséges.
+
+TODO: rendszerek megvalósítása
+
+
+
+
+
+
+
 \begin{itemize}
   \item Az esetleges katasztrófaesemények esetén is biztosítani kell a személyzet ->bázisra való visszajutását.
 \end{itemize}
