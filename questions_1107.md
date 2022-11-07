@@ -34,6 +34,18 @@
 		* egyik fúr, másik tárol? etc...
 		* másik rover drónja? (egyáltalán 2 van?)
 
+# Drón
+
+- Drón szállítása? Marsjáró külsején tudjon várakozni, valahova lehessen rögzíteni, amíg nincs felderítésen? Belsejében is legyen lehetőség tárolni?
+- Elektromos meghajtású? Lehessen tölteni a marsjárón vagy pl saját napelemmel tölti magát?
+- Csak felderítés a feladata, képes legyen mintákat venni/szállítani?
+	+ Ha igen: Mekkora mennyiségű mintát tud szállítani?
+- Saját tárhellyel rendelkezik a kamera számára? / Továbbítja a felvételeket a marsjáróra?
+- Élőben közvetítsen videófelvételt a marsjáróra?
+- Elég optimális látási viszonyok között felvételeket készítenie?
+	+ Legyen rajta: hőkamera / éjjellátó kamera / valami egyéb különleges?
+
+
 ## Források
 - [NASA arm](https://mars.nasa.gov/mars2020/spacecraft/rover/arm/)
 - [NASA sample handling](https://mars.nasa.gov/mars2020/spacecraft/rover/sample-handling/)
