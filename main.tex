@@ -119,16 +119,89 @@ alkatrészei alapján
 A biztonságos és megbízható működés, illetve a modularitás elveinek betartása végett a 
 járművet alrendszerekre bontjuk.
 
-\subsubsection{Navigáció}
-A navigációs alrendszer célja, a vezetőt ellátni információkkal a terepviszonyokról, útvonalat tervezni a marsi felszínen, illetve egy bizonyos szintű önvezetést megvalósítani.
+\subsubsection{Navigáció és szenzorok}
+A navigációs alrendszer célja a vezetőt ellátni információkkal a terepviszonyokról, útvonalat tervezni a marsi felszínen, illetve egy bizonyos szintű önvezetést megvalósítani.
 
-Érzékelők tekintetében szükséges:
+Szükséges moduláris érzékelők és eszközök:
 \begin{itemize}
-  \item XYZ ultrahangos érzékelő 
-  \item XYZ kamera 
-  \item XYZ számítógépes egység (az adatok feldolgozásához)
+  \item műholdas antennák
+  \item giroszkóp és gyorsulásmérő
+  \item motorhő-érzékelő
+  \item több irányba tekintő ultrahangos szenzorok és közelség- és mélységérzékelők
+  \item 360 fokos és 3D térlátást biztosító nagy felbontású kamerák 
+  \item számítógépes egység (az adatok feldolgozásához)
 \end{itemize}
 
+Biztosított funkciók:
+\begin{itemize}
+  \item helyzetmeghatározás: antennák által az űrbázis marsi műholdjaira csatlakozva
+  \item térkép felépítése: műholddal készült felvételekkel, marsjáró által már bejárt helyekről készült adatrögzítés által
+  \item környezetfelismerés: akadálymentes meghajtás szenzorok és kamerák által \begin {itemize}
+      \item lehetséges-e a kívánt dőlésszögben való haladás
+      \item megléphetetlen akadályok detektálása
+    \end{itemize}
+\end{itemize}
+
+Különleges irányelvek:
+\begin{itemize}
+  \item alacsony üzemanyagszint: energiahasználat csökkentése a nem szükséges szenzorok kikapcsolásával, ezáltal növelni az esélyét a bázisra visszatérésnek
+  \item útvonalon be nem tervezett akadály: újratervezés biztonságos útvonalat keresve
+\end{itemize}
+
+Becslések, gyártás és beszerzés, valamint ezek ledelegálása:
+\begin{itemize}
+  \item antennák, kamerák és szenzorok beszerzése: \begin{itemize}
+      \item megfelelő mennyiségű éles- és tartalékkészlet megrendelése
+      \item kapcsolatfelvétel az elvárt minőséget biztosító, és minél kedvezőbb árat kiszabó beszállítókkal
+      \item időbecslés: 1.5 hónap
+      \item pénzbecslés: 350 AK
+    \end{itemize}
+  \item navigációs szoftver: \begin{itemize}
+      \item előfeltétel: navigációs szenzorok beszerzése, programot elkészítő csapat megbízása
+      \item időigény: 6 hónap
+      \item pénzbecslés: 10000 AK
+    \end{itemize}
+  \item összesített becslés: \begin{itemize}
+      \item előfeltétel: navigációs szenzorok beszerzése, programot elkészítő csapat megbízása
+      \item időigény: 7.5 hónap
+      \item pénzbecslés: 10350 AK
+    \end{itemize}
+\end{itemize}
+
+Ahol 1 Arany Krajcár (AK) = 1 EUR
+
+\subsubsection{Egyéb szenzorok}
+A marsjáró optimális külső és belső állapotainak ellenőrzéséhez szükség van a navigációtól független szenzorokra is.
+
+Ezekhez szükségesek:
+\begin{itemize}
+  \item külső szenzorok: \begin{itemize}
+      \item külső hőmérő
+      \item napállást vizsgáló szenzor
+      \item légnyomásmérő
+    \end{itemize}
+  \item belső szenzorok: \begin{itemize}
+      \item marsjáró és szkafanderek töltöttség-mérője
+      \item oxigénszint-mérő
+      \item nyomásszint-mérő
+      \item belső hőmérő (ezáltal ellenőrizve a megrendelő által elvárt belső hőt)
+      \item kőzetminta mérleg (hogy ne lépjük túl a megrendelő által maximálisan elvártan szállított kőzetek tömegét)
+    \end{itemize}
+\end{itemize}
+
+Ezek által megállapítható, hogy:
+\begin{itemize}
+  \item alkalmasak-e a külső körülmények a marsjáró épségben maradását tekintve
+  \item alkalmasak-e a belső körülmények marsjáróban lévő emberek számára
+\end{itemize}
+
+TODO: 
+ötletek:
+
+- sensory
+  - manages the sensors and tools used for scientific research
+  - analysis the data from them
+  - stores (redundantly)
 
 \subsubsection{Meghajtás}
 
@@ -167,17 +240,6 @@ TODO:
 - power
   - managing the power in the rover
   - how electric power is flowing in the vechile
-
-\subsubsection{Szenzorok} 
-
-TODO: 
-ötletek:
-
-- sensory
-  - manages the sensors and tools used for scientific research
-  - analysis the data from them
-  - stores (redundantly)
-
 
 \section{Humán követelmények}
 \begin{itemize}
