@@ -71,6 +71,9 @@ Szerednik László Tamás: @szeredniklaszlo\\
   \vhEntry{1.1}{23.01.04}{DP|JPW}{correction}
   \vhEntry{1.2}{03.02.04}{DP|JPW}{revised after review}
   \vhEntry{1.3}{22.11.06}{Robert Fiko}{Subsystems, risk analysis and formatting}
+  \vhEntry{1.4}{22.11.09}{BreadKingGod}{Meghajtas}
+  
+
 \end{versionhistory}
 \chapter{Projekt bemutatása}
 Mars projekt
@@ -214,6 +217,105 @@ Marsjáró révén, a meghajtás is fontos kérdés, TODO: meghajtásos kolléga
   - the driving mechanism e.g. motors, enginges
 
   - the (micro)controllers for them
+
+Komponensek:
+
+\begin{itemize}
+    \item Kerék:
+        \begin{itemize}
+            \item Levegőmentes kerék
+            \item Alumíniumból kell készíteni
+            \item A tapadás érdekében kapcsokkal kell rendelkeznie
+            \item A rugós tapadásért titánium külőket kell bele építeni
+            \item Kerekek száma:
+                \begin{itemize}
+                    \item TODO: Össz hány darab?
+                    \item TODO: Hány kerék meghajtású?
+                    \item TODO: Hány pótkerék szükséges?
+                \end{itemize}
+        \end{itemize}
+    \item Futómű:
+        \begin{itemize}
+            \item TODO: Anyaga?
+            \item TODO: Terhetősége?
+        \end{itemize}
+    \item Motor:
+        \begin{itemize}
+            \item TODO: ?
+        \end{itemize}
+    \item Tank:
+        \begin{itemize}
+            \item Méretének akkorának kell, hogy 200 km üzemanyag elférjen benne
+            \item Két azonos méretű üzemanyag cellából álljon
+            \item A két üzemanyag cellából párhuzamosan fogyasszon üzemanyagot
+            \item Az üzemanyag cellák legyenek képesek önállóan is ellátni az eszközt
+            \item Feltölthető legyen a bázisról
+            \item Legyen egy rendszer ami méri a tank az üzemanyagcellák töltöttségét
+            \item Ez a rendszer értesítse a vezetőt, amikor a tank töltöttség félig van
+            \item Cellák fala olyan anyagból készüljön, amelyet nem rongál az üzemanyag
+            \item TODO: Cserélhetőnek kell-e lenni-e az üzemanyag celláknak?
+        \end{itemize}
+    \item Üzemanyag:
+        \begin{itemize}
+            \item TODO: ?
+        \end{itemize}
+    \item Közlekedés:
+        \begin{itemize}
+            \item El kell érnie a  25 km/h sebességet
+            \item Képesnek kell lennie 20 nap alatt 20 km-t megtenni
+            \item TODO: Sebesség fokozatok?
+            \item TODO: Bevehető meredekség hajlásszöge?
+            \item TODO: Szükséges-e valamilyen speciális manőver, például oldalazva menés?
+        \end{itemize}
+\end{itemize}
+
+
+Becslések és gyártás:
+
+\begin{itemize}
+    \item Kerék:
+        \begin{itemize}
+            \item Beszerez: TODO: 
+                \begin{itemize}
+                    \item Titánium küllők: Total Titan Titanium
+                    \item Aluminum: Cosmo Aluminum
+                \end{itemize}
+            \item Idő becslés: 2 hónap
+            \item Pénz becslés: 450 AK
+        \end{itemize}
+    \item Tank:
+        \begin{itemize}
+            \item Beszerez: TODO: 
+            \item Idő becslés: 1 hónap
+            \item Pénz becslés: 100 AK
+        \end{itemize}
+    \item Motor:
+        \begin{itemize}
+            \item Beszerez: TODO: 
+            \item Előfeltétel: 
+                \begin{itemize}
+                    \item Tank
+                \end{itemize}
+            \item Idő becslés: 1 év
+            \item Pénz becslés: 10000 AK
+        \end{itemize}
+    \item Futómű:
+        \begin{itemize}
+            \item Beszerez: TODO: 
+            \item Előfeltétel: 
+                \begin{itemize}
+                    \item Motor
+                    \item Kerék
+                \end{itemize}
+            \item Idő becslés: 2 év
+            \item Pénz becslés: 5500 AK
+        \end{itemize}
+    \item Összesített:
+        \begin{itemize}
+            \item Idő becslés: 3 év, 3 hónap
+            \item Pénz becslés: 16050 AK
+        \end{itemize}
+\end{itemize}
 
 \subsubsection{Létfentartás}
 
