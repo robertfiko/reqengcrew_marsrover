@@ -373,6 +373,13 @@ TODO:
   - managing the power in the rover
   - how electric power is flowing in the vechile
 
+\subsubsection{Drón}
+A marsjáróhoz tartozik egy drón. Ez egy a földön hétköznapi emberek által is használt drónhoz hasonló működési elvű eszköz. A feladata felderítés. A marsjáróhoz kapcsolódik és egy-egy misszió során gyűjt képanyagokat a környezetről.\\
+A drón repülésre képes, ehhez két koaxiális propellerrel van felszerelve. Ezek használatosak helikoptereknél is, ugyanis megkönnyítik a manőverezést. Mind a hajtásért felelős szerkezet, mind maga a drón váza és egyéb építőegységei - hasonlóan a marsjáróhoz - olyan anyagokból kell készüljenek, amik kibírnak bármilyen misszió során tapasztalt szélsőséges marsi időjárási viszonyokat.\\
+A drón célja, hogy felvételeket készítsen a környezetről. Ehhez egy általános kamerával van felszerelve, amivel normál látható színtartományban képes felvételeket csinálni. Ezen kívül szükséges felszerelése még egy infrakamera is. A felvételeket elsődlegesen a drón továbbítja a marsjáróra, hogy azok azonnal feldolgozhatóak, vizsgálhatóak legyenek. A képanyagok tárolására rendelkezik egy saját átmeneti adattárolóval is, ami a FIFO módszeren alapul.\\
+Működését tekintve elektromos hajtású. Irányítása történhet a marsjáróról manuálisan, azonban elsősorban önműködő. Képes kell legyen magától eltalálni a felderíteni kívánt helyszínre, irányba, valamint onnan automatikusan visszajutni a marsjáróra. A hatótávolsága 4500 méter. ALapvető biztonsági fukciókkal kell rendelkezzen, mint a levegőben való egyhelyben repülés (várakozás), egyensúlyozás.\\
+Tárolása a marsjáró külsején történik egy akkumulátorral felszerelt dokkolón. Töltése a járműről történik a dokkolón keresztül. 
+
 \section{Humán követelmények}
 \begin{itemize}
   \item A marsjárón szkafander nélküli környezetet kell biztosítani. (Szobahömérséklet, levegö.)
@@ -444,7 +451,9 @@ TODO: rendszerek megvalósítása
 \section{További fogalmak}
 
 \begin{itemize}
-  \item \textbf{fogalom}: Lorem ipsom dolor sit amet TODO:
+  \item \textbf{koaxiális propellerek}: Egy tengelyen egymás fölött elhelyezett két darab propeller, amik ellentétes irányba forognak. Ezzel nagyban javul a hajtás és manőverezés.
+  \item \textbf{propeller}: Légcsavar. Repülőgépek, helikopterek és egyéb repülő eszközök (ezesetben drón) körében használt erőátviteli megoldás. A motor teljesítményét közvetíti a hordozó közegre (levegő).
+  \item \textbf{FIFO módszer}: "First in firts out", azaz amelyik adat (képfelvétel) előszür került tárolásra azt továbbítja / az vehető ki először.
 \end{itemize}
 
 
