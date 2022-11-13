@@ -25,3 +25,9 @@ Cseresnyés Kristóf: @aPisC
 Novák-Schwartz József: @JNSchwartz
 
 Szerednik László Tamás: @szeredniklaszlo
+
+## Külső kapcsolattartások
+
+**Szabó Tihamér**: kapcsolat keresése Ellátmányürhajóval
+**Hosek Henrietta**: kapcsolat keresése Marsbázis projekttel
+**Fikó Róbert**: elsődleges kapcsolattartó
