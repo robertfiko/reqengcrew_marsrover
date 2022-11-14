@@ -9,4 +9,7 @@
  - kell e egyszerre tölteni a 2 jármővet?
  - nappali szerű helység?
  - fotel? szék? asztal? hány férőhely
- - 
+
+
+ - űrállomással való töltés?
+ - marsjáró vízbontás??
