@@ -31,3 +31,8 @@ Szerednik László Tamás: @szeredniklaszlo
 **Szabó Tihamér**: kapcsolat keresése Ellátmányürhajóval
 **Hosek Henrietta**: kapcsolat keresése Marsbázis projekttel
 **Fikó Róbert**: elsődleges kapcsolattartó
+
+## Néhány válasz
+
+Hogyan jut el a marsra?
+űrrakéta viszi ki Föld körüli pályára, ahol a bázissal meg minden cuccal egybeszerelve indítják útnak a kis drágákat
