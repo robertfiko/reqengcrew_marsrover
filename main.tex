@@ -3,9 +3,39 @@
 \usepackage{underscore}
 \usepackage{vhistory}
 \usepackage{setspace}
+\usepackage{listings}
+\usepackage{xparse}
+\usepackage{xcolor}
+
+
+
+\definecolorset{rgb/hsb/cmyk/gray}{}{}%
+ {red,1,0,0/0,1,1/0,1,1,0/.3;%
+  green,0,1,0/.33333,1,1/1,0,1,0/.59;%
+  blue,0,0,1/.66667,1,1/1,1,0,0/.11;%
+  brown,.75,.5,.25/.083333,.66667,.75/0,.25,.5,.25/.5475;%
+  lime,.75,1,0/.20833,1,1/.25,0,1,0/.815;%
+  orange,1,.5,0/.083333,1,1/0,.5,1,0/.595;%
+  pink,1,.75,.75/0,.25,1/0,.25,.25,0/.825;%
+  purple,.75,0,.25/.94444,1,.75/0,.75,.5,.25/.2525;%
+  teal,0,.5,.5/.5,1,.5/.5,0,0,.5/.35;%
+  violet,.5,0,.5/.83333,1,.5/0,.5,0,.5/.205}%
+\definecolorset{cmyk/rgb/hsb/gray}{}{}%
+ {cyan,1,0,0,0/0,1,1/.5,1,1/.7;%
+  magenta,0,1,0,0/1,0,1/.83333,1,1/.41;%
+  yellow,0,0,1,0/1,1,0/.16667,1,1/.89;%
+  olive,0,0,1,.5/.5,.5,0/.16667,1,.5/.39}
+\definecolorset{gray/rgb/hsb/cmyk}{}{}%
+ {black,0/0,0,0/0,0,0/0,0,0,1;%
+  darkgray,.25/.25,.25,.25/0,0,.25/0,0,0,.75;%
+  gray,.5/.5,.5,.5/0,0,.5/0,0,0,.5;%
+  lightgray,.75/.75,.75,.75/0,0,.75/0,0,0,.25;%
+  white,1/1,1,1/0,0,1/0,0,0,0}
+
+
+
 \usepackage[bookmarks=true]{hyperref}
 \hypersetup{
-    bookmarks=false,    % show bookmarks bar?
     pdftitle={Software Requirement Specification},    % title
     pdfauthor={Yiannis Lazarides},                     % author
     pdfsubject={TeX and LaTeX},                        % subject of the document
@@ -63,6 +93,11 @@ Szerednik László Tamás: @szeredniklaszlo\\
 
 \begin{document}
 
+
+\newcommand{\reqid}[1]{\colorbox{lightgray}{#1}}
+%\newcommand{\reqidc}[2]{
+%  \colorbox{lightgray}{#1_\arabic{#2}}
+%}
 \maketitle
 
 \tableofcontents
@@ -75,6 +110,11 @@ Szerednik László Tamás: @szeredniklaszlo\\
   \vhEntry{1.5}{22.11.12}{szabotihi}{Supply, food, drink}
   \vhEntry{1.6}{22.11.12}{Novák-Schwartz József}{Spacesuit}
   \vhEntry{1.6.1}{22.11.13}{Robert Fiko}{Merge and review}
+  \vhEntry{1.6.2}{22.11.13}{engreyight}{Glossary}
+  \vhEntry{1.7}{22.11.13}{apisc}{Strength requirements}
+  \vhEntry{1.8}{22.11.13}{katilippa}{Repairablity and upgradability}
+  \vhEntry{1.9}{22.11.20}{BreadKingGod}{Meghajtas 2.0}
+  \vhEntry{1.9.1}{22.11.13}{Robert Fiko}{Merge and review}
 
 
 
@@ -82,15 +122,15 @@ Szerednik László Tamás: @szeredniklaszlo\\
 
 \end{versionhistory}
 \chapter{Projekt bemutatása}
-Mars projekt
 A NASA a Mars emberekkel történő felfedezéséhez magáncégek pályázatát várja a szükséges hardver és szoftverelemek kifejlesztéséhez az alábbi témakörökben:
 \begin{enumerate}
   \item Marsbázis
-  \item Marsjáró jármű
+  \item \textbf{Marsjáró jármű}
   \item Ellátmányűrhajó
   \item Mars-járó jármű
 \end{enumerate}
-Készítsen specifikációt 2 Mars-járó járműre az alábbiakat figyelembe véve:
+
+Ebben a projektben 2 Mars-járó járműre készítünk specifikációt az alábbiakat figyelembe véve:
 \begin{itemize}
   \item A járműveknek maximum 4 ember ellátását kell biztosítaniuk a Mars-járó missziók
 időtartamára
@@ -106,24 +146,69 @@ elvégzésére, valamint a begyűjtött kőzetminták szállítására
   \item A főbb alrendszereknek javíthatónak és cserélhetőnek kell lennie az ellátmány bázis
 alkatrészei alapján
 \end{itemize}
+
 \chapter{Követelmények}
-\section{Megvalósítás lépései}
+\section{Követelmények számozása és rendszere}
+A követelmények egyedi azonosítására az alábbi formátumot használjuk \\ 
+\textbf{A_ID}, ahol \textbf{A} annak a részterületnek az azonosítója, ahova a követelmény tartozik, \textbf{ID} pedig az azon belüli követelmény azonosító.
+
+\subsection{Alkategóriák, részterületek}
 \begin{itemize}
-  \item Földi tervezés.
-  \item Földi prototipizálás.
-  \item Földi tesztelés. (Antarktisz és vulkán.)
-  \item Holdi tesztelés.
-  \item Marsi tesztelés?
-  \item Marsi szállítás.
-\end{itemize}
-\section{Mérnöki követelmények}
-\begin{itemize}
-  \item A marsjáró mérete x*y*z.
-  \item A marsjáró kereke (?).
-  \item A marsi körülményeknek ellenálló anyag ?titánium?, ebböl készül a külsö ?n? réteg.
+  \item \reqid{NS}: navigáció és szenzorok követelményei 
+  \item \reqid{F}: fúró követelményei
+  \item \reqid{R}: robotkar követelményei
+  \item \reqid{S}: szenzorok követelményei
+  \item \reqid{M}: meghajtás követelményei
+  \item \reqid{Z}: szkafander, űrruha követelményei
+  \item \reqid{D}: drón követelményei
+  \item \reqid{H}: humán követelmények
+  \item \reqid{K}: kutatási követelmények
+  \item \reqid{J}: javíthatósági követelmények
+  \item \reqid{T}: strapabírósági követelmények
+  \item \reqid{U}: utókövetelmények
 \end{itemize}
 
-\subsection{A jármű alrendszerei\label{subsytems}}
+
+
+
+\section{Megvalósítás ütemterve}
+
+A megvalósítás ütemtervet, a marsbázis csapattal egyeztetve, az alábbiak szerint állítottuk fel.
+
+\begin{itemize}
+  \item Tervezési fázis: 2025. május 10
+  \begin{itemize}
+    \item A jármű részletes terveinek el kell készülnie.
+  \end{itemize}
+  \item Első prototípus: 2028. május 10
+  \begin{itemize}
+    \item Alapvető motorikus funkciók
+    \item Dokkolás, légzsilip
+    \item kommunikáció
+    \item robot kar
+  \end{itemize}
+  \item Második prototípus: 2030. május 10
+  \begin{itemize}
+    \item Kisebb hibák még elfogadhatóak
+    \item A véglesges specifikációt be kell tartalékmoduljainak
+    \item Legalább 95\%-ban legyen megvalósítva
+  \end{itemize}
+  \item Tesztelés a Földön: 2031. május 10
+  \begin{itemize}
+    \item sarkvidéki, sivatagi és vulaknikus körülmények között
+  \end{itemize}
+  \item Marsi leszállítás: 2035. május 10
+\end{itemize}
+
+
+\section{Mérnöki követelmények}
+\begin{itemize}
+  \item A marsjáró mérete x*y*z. TODO:
+  \item A marsjáró kereke (?). TODO:
+  \item A marsi körülményeknek ellenálló anyag ?titánium?, ebböl készül a külsö ?n? réteg. TODO:
+\end{itemize}
+
+\subsection{A jármű alrendszerei}\label{subsystems}
 
 A biztonságos és megbízható működés, illetve a modularitás elveinek betartása végett a 
 járművet alrendszerekre bontjuk.
@@ -131,27 +216,27 @@ járművet alrendszerekre bontjuk.
 \subsubsection{Navigáció és szenzorok}
 A navigációs alrendszer célja a vezetőt ellátni információkkal a terepviszonyokról, útvonalat tervezni a marsi felszínen, illetve egy bizonyos szintű önvezetést megvalósítani.
 
-Szükséges moduláris érzékelők és eszközök:
+\noindent\textbf{Szükséges moduláris érzékelők és eszközök}
 \begin{itemize}
-  \item műholdas antennák
-  \item giroszkóp és gyorsulásmérő
-  \item motorhő-érzékelő
-  \item több irányba tekintő ultrahangos szenzorok és közelség- és mélységérzékelők
-  \item 360 fokos és 3D térlátást biztosító nagy felbontású kamerák 
-  \item számítógépes egység (az adatok feldolgozásához)
+  \item \reqid{NS_1} műholdas antennák
+  \item \reqid{NS_2} giroszkóp és gyorsulásmérő
+  \item \reqid{NS_3} motorhő-érzékelő
+  \item \reqid{NS_4} több irányba tekintő ultrahangos szenzorok és közelség- és mélységérzékelők
+  \item \reqid{NS_5} 360 fokos és 3D térlátást biztosító nagy felbontású kamerák 
+  \item \reqid{NS_6} számítógépes egység (az adatok feldolgozásához)
 \end{itemize}
 
-Biztosított funkciók:
+\noindent\textbf{Biztosított funkciók}
 \begin{itemize}
-  \item helyzetmeghatározás: antennák által az űrbázis marsi műholdjaira csatlakozva
-  \item térkép felépítése: műholddal készült felvételekkel, marsjáró által már bejárt helyekről készült adatrögzítés által
-  \item környezetfelismerés: akadálymentes meghajtás szenzorok és kamerák által \begin {itemize}
+  \item \reqid{NS_7} helyzetmeghatározás: antennák által az űrbázis marsi műholdjaira csatlakozva
+  \item \reqid{NS_8} térkép felépítése: műholddal készült felvételekkel, marsjáró által már bejárt helyekről készült adatrögzítés által
+  \item  \reqid{NS_9} környezetfelismerés: akadálymentes meghajtás szenzorok és kamerák által \begin {itemize}
       \item lehetséges-e a kívánt dőlésszögben való haladás
       \item megléphetetlen akadályok detektálása
     \end{itemize}
 \end{itemize}
 
-Különleges irányelvek:
+\noindent\textbf{Különleges irányelvek}
 \begin{itemize}
   \item alacsony üzemanyagszint: energiahasználat csökkentése a nem szükséges szenzorok kikapcsolásával, ezáltal növelni az esélyét a bázisra visszatérésnek
   \item útvonalon be nem tervezett akadály: újratervezés biztonságos útvonalat keresve
@@ -165,7 +250,7 @@ Becslések, gyártás és beszerzés, valamint ezek ledelegálása:
       \item időbecslés: 1.5 hónap
       \item pénzbecslés: 350 AK
     \end{itemize}
-  \item navigációs szoftver: \begin{itemize}
+  \item \reqid{NS_10} navigációs szoftver: \begin{itemize}
       \item előfeltétel: navigációs szenzorok beszerzése, programot elkészítő csapat megbízása
       \item időigény: 6 hónap
       \item pénzbecslés: 10000 AK
@@ -181,13 +266,15 @@ Ahol 1 Arany Krajcár (AK) = 1 EUR
 
 \subsubsection{A fúró és szenzorai, vizsgálatok}
 
-A marsjárónak több különböző fúrófejjel rendelkeznie, melyek cserélhetők. Ezeket használja egyrészt 30cm mély lyukak fúrására, illetve a felszín lekaparására. Az így keletkezett lyukak alján ezután párologtatást végez, és az így kiváló anyagokat összegyűjti. Emellett képes a felszínen már jelenlévő és a kaparással előállított regolitot felszívni, illetve esetlegesen maximum 50x25x25cm-es már szabadon lévő kőzetdarabokat begyűjteni. A marsjáró összesen 800kg kőzetminta tárolására és szállítására képes.
+A marsjárónak több különböző fúrófejjel kell rendelkeznie, melyek cserélhetők. Ezeket használja egyrészt 30 cm mély lyukak fúrására (\reqid{F_1}), illetve a felszín lekaparására. (\reqid{F_2}) Az így keletkezett lyukak alján ezután párologtatást (\reqid{F_3}) végez, és az így kiváló anyagokat összegyűjti. (\reqid{F_4}) Emellett képes a felszínen már jelenlévő és a kaparással előállított regolitot felszívni, illetve esetlegesen maximum 50x25x25cm-es már szabadon lévő kőzetdarabokat begyűjteni. (\reqid{F_5})  A marsjáró összesen 800kg kőzetminta tárolására és szállítására képes. (\reqid{F_6}) 
 
-A minták tárolására két fajta tároló használható. Egy egyszer használatos, melyet a minták felhasználása után ki kell dobni, vagy egy speciális, vegyszeres tisztítás után újrahasznosítható. Szükség van emelett olyan "tárolókra", amelyekbe nem kerülnek minták, csupán arról adnak tanubizonyságot, hogy a kinyerés során nem szennyeződött a többi minta.
+A minták tárolására két fajta tároló használható. Egy egyszer használatos, melyet a minták felhasználása után ki kell dobni, vagy egy speciális, vegyszeres tisztítás után újrahasznosítható. Szükség van emelett olyan "tárolókra", amelyekbe nem kerülnek minták, csupán arról adnak tanubizonyságot, hogy a kinyerés során nem szennyeződött a többi minta. (\reqid{F_7}) 
 
-A fúró egy robotkarra van rögzítve, mely számos szabadsági fokkal, vagy izülettel rendelkezik. Első a váll, amely minden irányban mozgatható egy megadott tartományban. Ezt követi a könyök, amely hajlítható és egy 360 fokban elforgatható csukló. Ennek a végén található egy fogó, melynek egyik ága a fúró, a másik pedig egy kamera, amely a fúrást segíti. Ehhez egy lámpa is tartozik, és normál fénytartományban működik. Emellett található rajta egy biztonsági kontaktszenzor, amely véd a berendezés meghibásodása ellen.
+A fúró egy robotkarra van rögzítve, mely számos szabadsági fokkal, vagy izülettel rendelkezik. 
 
-A marsjárón a fúrófejhez tartozó kamera mellett található még 4, ebből 2 előre, 2 pedig hátrafelé néz. Ezek kellő távolságban vannak egymástól ahhoz, hogy a mélységérzékelés működjön. Minden kamerához tartozik 1-1 lámpa, és ezek az infravörös tartományban is működnek.
+Első a váll, amely minden irányban mozgatható egy megadott tartományban. (\reqid{R_1}) Ezt követi a könyök, amely hajlítható és egy 360 fokban elforgatható csukló. (\reqid{R_2}) Ennek a végén található egy fogó, melynek egyik ága a fúró, a másik pedig egy kamera, amely a fúrást segíti.  Ehhez egy lámpa is tartozik, és normál fénytartományban működik. (\reqid{R_3}) Emellett található rajta egy biztonsági kontaktszenzor, amely véd a berendezés meghibásodása ellen. (\reqid{R_4})
+
+A marsjárón a fúrófejhez tartozó kamera mellett található még 4, ebből 2 előre, 2 pedig hátrafelé néz. Ezek kellő távolságban vannak egymástól ahhoz, hogy a mélységérzékelés működjön. Minden kamerához tartozik 1-1 lámpa, és ezek az infravörös tartományban is működnek. (\reqid{NS_11})
 
 Az összegyűjtött mintákat el lehet tárolni, és a bázisra szállítani, vagy akár már a marsjáróban fel lehet őket nyitni és alapvető vizsgálatokat végezni rajtuk.
 
@@ -199,16 +286,16 @@ A marsjáró optimális külső és belső állapotainak ellenőrzéséhez szük
 Ezekhez szükségesek:
 \begin{itemize}
   \item külső szenzorok: \begin{itemize}
-      \item külső hőmérő
-      \item napállást vizsgáló szenzor
-      \item légnyomásmérő
+      \item \reqid{S_1} külső hőmérő
+      \item \reqid{S_2} napállást vizsgáló szenzor
+      \item \reqid{S_3} légnyomásmérő
     \end{itemize}
   \item belső szenzorok: \begin{itemize}
-      \item marsjáró és szkafanderek töltöttség-mérője
-      \item oxigénszint-mérő
-      \item nyomásszint-mérő
-      \item belső hőmérő (ezáltal ellenőrizve a megrendelő által elvárt belső hőt)
-      \item kőzetminta mérleg (hogy ne lépjük túl a megrendelő által maximálisan elvártan szállított kőzetek tömegét)
+      \item \reqid{S_4} marsjáró és szkafanderek töltöttség-mérője
+      \item \reqid{S_5} oxigénszint-mérő
+      \item \reqid{S_6} nyomásszint-mérő
+      \item \reqid{S_7} belső hőmérő (ezáltal ellenőrizve a megrendelő által elvárt belső hőt)
+      \item \reqid{S_8} kőzetminta mérleg (hogy ne lépjük túl a megrendelő által maximálisan elvártan szállított kőzetek tömegét)
     \end{itemize}
 \end{itemize}
 
@@ -218,37 +305,29 @@ Ezek által megállapítható, hogy:
   \item alkalmasak-e a belső körülmények marsjáróban lévő emberek számára
 \end{itemize}
 
-TODO: 
-ötletek:
-
-- sensory
-  - manages the sensors and tools used for scientific research
-  - analysis the data from them
-  - stores (redundantly)
-
 \subsubsection{Meghajtás}
 
 Komponensek:
 
 \begin{itemize}
-    \item Kerék:
+    \item \reqid{M_1} Kerék:
         \begin{itemize}
             \item Levegőmentes kerék
             \item A tapadás érdekében kapcsokkal kell rendelkeznie
             \item A rugós tapadásért titánium külőket kell bele építeni
         \end{itemize}
-    \item Futómű:
+    \item \reqid{M_2} Futómű:
         \begin{itemize}
             \item Fémből kell készíteni
             \item Teherbírásának akkorának kell lenni, hogy elbírja a kocsi tömegét
         \end{itemize}
-    \item Motor:
+    \item \reqid{M_3} Motor:
         \begin{itemize}
             \item Hidrogénmotor
             \item Bázistól feltöltéskor vizet és energiát kapunk, a vizet a kapott energia segítségével kell oxigénre és hidrogénre bontani
             \item A motor belsejében a hidrogént az oxigén segítségével elégetjük, a felszabaduló energiát használja a motor meghajtásra, a melléktermék vizet meg emberi fogyasztásra alkalmazható
         \end{itemize}
-    \item Tank:
+    \item \reqid{M_4} Tank:
         \begin{itemize}
             \item Méretének akkorának kell, hogy 200 km üzemanyag elférjen benne
             \item Két azonos méretű üzemanyag cellából álljon
@@ -259,7 +338,7 @@ Komponensek:
             \item Ez a rendszer értesítse a vezetőt, amikor a tank töltöttség félig van
             \item Az üzemanyagcellák dokkolva tölthetőnek kell lenniük
         \end{itemize}
-    \item Közlekedés:
+    \item \reqid{M_5} Közlekedés:
         \begin{itemize}
             \item El kell érnie a  25 km/h sebességet
             \item Képesnek kell lennie 20 nap alatt 20 km-t megtenni
@@ -322,6 +401,8 @@ Becslések és gyártás:
 
 \subsubsection{Létfenntartás}
 
+TODO: Req Id-k
+
 Természetesen az emberi személyzet végett, a létfenntartó rendszerek elengedhetetlenek. XYZ típusú levegő szűrő és széndioxid kivonó rendszerrel és XYZ típusú vízújrahasznosító rendszerrel fogjuk felszerelni. Az utóbbi képes a levegő páratartalmát kivonni, illetve vizeletet tisztítani, így végül fogyasztásra alkalmas ivóvizet kapunk.
 
 Az asztronautáknak a megfelelő hőmérséklet biztosítására az XYZ típusú fűtő berendezést szereljük, mivel a marsi hőmörséklet nem haladja meg a 21 Celsius fokot, így fűtés biztosítása elegendő.
@@ -330,6 +411,8 @@ Forrás: https://www.weather.gov/fsd/mars
 TODO: cite
 
 \subsubsection{Telekommunikáció}
+
+TODO: Req Id-k
 
 A telekommunkációhoz XYZ típusú, PRZ paraméterű antennákat és XYZ típusú jelfeldolgozó egységeket fogunk használni.
 
@@ -340,13 +423,13 @@ TODO: kérdés, bázissal kommunikációs frekvencia
 \subsubsection{Szkafander/űrruha és a mars járó kapcsolata}
 \begin{itemize}
 
-  \item A bázissal megegyezö módon töltjük a szkafander elektromos akkumulátorát és oxigénpalackját is a roverben.
-  \item A jármüvön egy fajta sürített o2 palack, amiböl a járón belül is keverjük a levegöt, és a palackot is tudjuk tölteni, ezt pedig a bázison töltjük újra. Biztonsági redundancia szempontból persze lehet több palack, de praktikus, ha csak egyfajta, és mindkét funkciót képes biztosítani.
-  \item Töltöaljzat és oxigéncsap biztosítása.
-  \item Szkafander töltö alkatrész, oxigén palack szükítö alkatrész.
+  \item \reqid{Z_1} A bázissal megegyezö módon töltjük a szkafander elektromos akkumulátorát és oxigénpalackját is a roverben.
+  \item \reqid{Z_2} A jármüvön egy fajta sürített \(O_2\) palack, amiből a járón belül is keverjük a levegöt, és a palackot is tudjuk tölteni, ezt pedig a bázison töltjük újra. Biztonsági redundancia szempontból persze lehet több palack, de praktikus, ha csak egyfajta, és mindkét funkciót képes biztosítani.
+  \item \reqid{Z_3} Töltöaljzat és oxigéncsap biztosítása.
+  \item \reqid{Z_4} Szkafander töltö alkatrész, oxigén palack szükítö alkatrész.
   \item Ezek beszerelése a teljes elektromos és oxigén kivitelezési körök után kezdödhet, és átadásig elég befejezödnie.
-  \item A tiszta oxigén légzése elött egy ú.n. elölégzésre van szükség, ami a nitrogént kiüríti a szervezetböl, így megelözve a sérüléseket. Ehhez szükséges vákuumkamra biztosítása. Javaslom a mars felé nyíló zsiliprendszer vákuumképzéssel felruházását.
-  \item Oxigén nyomás kritikus csökkenés esetén, vagy kritikus áramcsökkenés esetén azonnali visszatérés megkövetelése. Fel nem töltött szkafanderek esetén töltés azonnali megkövetelése, vagy kötelezö visszatérés. A humán biztonság megköveteli, hogy mindig legyen töltött szkafander evakuációhoz.
+  \item \reqid{Z_5} A tiszta oxigén légzése elött egy ú.n. elölégzésre van szükség, ami a nitrogént kiüríti a szervezetböl, így megelözve a sérüléseket. Ehhez szükséges vákuumkamra biztosítása. Javaslom a mars felé nyíló zsiliprendszer vákuumképzéssel felruházását.
+  \item \reqid{Z_6} Oxigén nyomás kritikus csökkenés esetén, vagy kritikus áramcsökkenés esetén azonnali visszatérés megkövetelése. Fel nem töltött szkafanderek esetén töltés azonnali megkövetelése, vagy kötelezö visszatérés. A humán biztonság megköveteli, hogy mindig legyen töltött szkafander evakuációhoz.
 \end{itemize}
 
 \subsubsection{Energiaellátás}
@@ -359,50 +442,55 @@ TODO:
   - how electric power is flowing in the vechile
 
 \subsubsection{Drón}
-A marsjáróhoz tartozik egy drón. Ez egy a földön hétköznapi emberek által is használt drónhoz hasonló működési elvű eszköz. A feladata felderítés. A marsjáróhoz kapcsolódik és egy-egy misszió során gyűjt képanyagokat a környezetről.\\
-A drón repülésre képes, ehhez két koaxiális propellerrel van felszerelve. Ezek használatosak helikoptereknél is, ugyanis megkönnyítik a manőverezést. Mind a hajtásért felelős szerkezet, mind maga a drón váza és egyéb építőegységei - hasonlóan a marsjáróhoz - olyan anyagokból kell készüljenek, amik kibírnak bármilyen misszió során tapasztalt szélsőséges marsi időjárási viszonyokat.\\
-A drón célja, hogy felvételeket készítsen a környezetről. Ehhez egy általános kamerával van felszerelve, amivel normál látható színtartományban képes felvételeket csinálni. Ezen kívül szükséges felszerelése még egy infrakamera is. A felvételeket elsődlegesen a drón továbbítja a marsjáróra, hogy azok azonnal feldolgozhatóak, vizsgálhatóak legyenek. A képanyagok tárolására rendelkezik egy saját átmeneti adattárolóval is, ami a FIFO módszeren alapul.\\
-Működését tekintve elektromos hajtású. Irányítása történhet a marsjáróról manuálisan, azonban elsősorban önműködő. Képes kell legyen magától eltalálni a felderíteni kívánt helyszínre, irányba, valamint onnan automatikusan visszajutni a marsjáróra. A hatótávolsága 4500 méter. ALapvető biztonsági fukciókkal kell rendelkezzen, mint a levegőben való egyhelyben repülés (várakozás), egyensúlyozás.\\
-Tárolása a marsjáró külsején történik egy akkumulátorral felszerelt dokkolón. Töltése a járműről történik a dokkolón keresztül. 
+
+A marsjáróhoz tartozik egy drón. Ez egy a földön hétköznapi emberek által is használt drónhoz hasonló működési elvű eszköz. A feladata felderítés. A marsjáróhoz kapcsolódik és egy-egy misszió során gyűjt képanyagokat a környezetről.
+
+A drón repülésre képes, ehhez két koaxiális propellerrel van felszerelve. (\reqid{D_1}) Ezek használatosak helikoptereknél is, ugyanis megkönnyítik a manőverezést. Mind a hajtásért felelős szerkezet, mind maga a drón váza és egyéb építőegységei - hasonlóan a marsjáróhoz - olyan anyagokból kell készüljenek, amik kibírnak bármilyen misszió során tapasztalt szélsőséges marsi időjárási viszonyokat. (\reqid{D_2})\\
+
+A drón célja, hogy felvételeket készítsen a környezetről. Ehhez egy általános kamerával van felszerelve, amivel normál látható színtartományban képes felvételeket csinálni. (\reqid{D_3}) Ezen kívül szükséges felszerelése még egy infrakamera is. (\reqid{D_4}) A felvételeket elsődlegesen a drón továbbítja a marsjáróra, hogy azok azonnal feldolgozhatóak, vizsgálhatóak legyenek. A képanyagok tárolására rendelkezik egy saját átmeneti adattárolóval is, ami a FIFO módszeren alapul. (\reqid{D_5})\\
+
+Működését tekintve elektromos hajtású. (\reqid{D_6}) Irányítása történhet a marsjáróról manuálisan (\reqid{D_7}), azonban elsősorban önműködő. (\reqid{D_8}) Képes kell legyen magától eltalálni a felderíteni kívánt helyszínre, irányba, valamint onnan automatikusan visszajutni a marsjáróra.(\reqid{D_9}) A hatótávolsága 4500 méter. (\reqid{D_10})ALapvető biztonsági fukciókkal kell rendelkezzen, mint a levegőben való egyhelyben repülés (várakozás), egyensúlyozás. (\reqid{D_11})\\
+
+Tárolása a marsjáró külsején történik egy akkumulátorral felszerelt dokkolón. Töltése a járműről történik a dokkolón keresztül. (\reqid{D_12})
 
 \section{Humán követelmények}
 \begin{itemize}
-  \item A marsjárón szkafander nélküli környezetet kell biztosítani. (Szobahömérséklet, levegö.)
-  \item A marsjáron biztosítani kell a szkafanderek töltését ->bázissal egyezö módon.
-  \item A küldetésekhez elegendö ételek tárolása és ivóvíz biztosítása is feltétel.
-  Ezt a problémát két részre bontjuk, az első maga a tároló egység, amelyben az étel, és a szükséges ivóvíz van. A másik pedig a vizelet disztillálás, mellyel újrahasznosíthatjuk a vizeletet, izzadtságot.
+  \item \reqid{H_1} A marsjárón szkafander nélküli környezetet kell biztosítani. (Szobahömérséklet, levegö.)
+  \item \reqid{H_2} A marsjáron biztosítani kell a szkafanderek töltését, a bázissal egyezö módon.
+  \item \reqid{H_3} A küldetésekhez elegendö ételek tárolása és ivóvíz biztosítása
+  Ezt a problémát két részre bontjuk, az első maga a tároló egység, amelyben az étel, és a szükséges ivóvíz van. \reqid{H_4} A másik pedig a vizelet disztillálás, mellyel újrahasznosíthatjuk a vizeletet, izzadtságot. 
   \begin{itemize}
-    \item Vizelet disztilláló \\
+    \item Vizelet disztilláló \reqid{H_5} \\ 
     A NASA folyamatosan fejleszti azt az eszközt, amely a nemzetközi űrállomáson is megtalálható. A mai napig igyekeznek a vízszállítást a lehető legjobban csökkenteni. Egy ilyen disztillálóra lenne szükségünk tőlük, mely a legénység vízszükségleteinek 60\%-át tudja ellátni.
     Egy ilyennek a mérete 35-55 kilogram, térfogatban pedig 1 méter széles, 1,7 méter magas és fél méter a mélysége.
-    Ennek elhelyezését a marsjáróban a egy toalett méretű helységben helyezném el. Ez a helység egy külön modul.
+    Ennek elhelyezését a marsjáróban a egy toalett méretű helységben helyeznénk el. Ez a helység egy külön modul.
     Ez a gépezet naponta 9 kg vizeletet képes feldolgozni, ez kevesebb, mint amit 4 ember 16 óra alatt termel. A maradék vizeletüket el kell tárolni, hogy a későbbiekben felhasználhassák, akár a bázison, akár egy másik küldetésen. A vizelettárolást egy steril tartályban kell tárolni, amelynek hőmérséklete nem érheti el a 40 Celsius-fokot. Ennek megoldására, az újrahasznosítóval egy teremben kellene létrehozni egy toalett szerűséget, amely az említett tartályba gyűjti a vizeletet. Ezen tartálynak 380 literesnek kell lennie, hogy minden vizeletet megőrizzen, viszont hatalmas méretei miatt ezt 240 literesre tervezzük. A többi vizelet elveszhet. Ennek beszerzéséhez 400-500 euróra van szükség.
-    \item Tároló egység \\
+    \item Tároló egység \reqid{H_6} \\ 
     A tároló raktár egy külön helység lesz a marsjárón, melyben különleges polcok vannak, amelyeknek az ételt tartalmazó részein a hőmérséklet állítható. Emelett olyan módon tartalmazza az ételt, hogy az a marsjáró különböző szögű mozgásaikor se essen le a polcról. Maga a moduláris terem beszerzése/beszerelése 4500-5000 euró. Ezen terem méretei: 2m belmagasság, 3 méter széles és 2 méter mély. A polcoknak együtt 140 kilogramm étel eltárolását kell biztosítani. Ezen polcok a teremben alul és felül is csatlakozzanak a felülettel. Egy ilyen polcnak az előállítása és beszerelésének költsége 350-400 euró, mivel négy ilyen polc van, ezért 1600 euró. \\
     A teremben szükség van még egy nyílásra, amely a 80 literes ivóvíz tartályhoz csatlakozik, ez a víz 40\% annak amelyet 4 ember megiszik 20 nap alatt. A többi víz a vizelet újrahasznosítással állítódik elő. A vizes tartály beszerzése és beszerelése eggyüttesen 3000-3500 euróba kerül.  
   \end{itemize}  
-  \item Alapvetö higiénés és rekreációs szükségletek biztosítása feltétel.
+  \item Alapvetö higiénés és rekreációs szükségletek biztosítása feltétel. \reqid{H_7}
 \end{itemize}
 \section{Kutatási követelmények}
 \begin{itemize}
-  \item A marsjáróra mintavételezéshez szükséges egy fúrót felszerelni.
-  \item A begyüjött mintaásványokon kisebb laborvizsgálatokat el kell tudni végezni, mint pl. centrifugálás.
-  \item Z köbméter ásvány ->bázisra való visszaszállítását kell biztosítani.
+  \item \reqid{K_1} A marsjáróra mintavételezéshez szükséges egy fúrót felszerelni.
+  \item \reqid{K_2} A begyüjött mintaásványokon kisebb laborvizsgálatokat el kell tudni végezni, mint pl. centrifugálás.
+  \item \reqid{K_3} Z TODO: köbméter ásvány a ázisra való visszaszállítását kell biztosítani.
 \end{itemize}
 
 
 \section{Javíthatóság és fejleszthetőség}
 
-A jármű felépítését modulárisra kell tervezni, biztosítva, hogy meghibásodás esetén bármely alkatrész könnyen hozzáférhető és cserélhető legyen. Ezen felül a vizsgálatokhoz szükséges eszközök újabb típusra történő leváltására is lehetőség kell legyen. \\
-A létfenntartást, helyzetmeghatározást és kommunikációt biztosító rendszerek biztonsági okokból a missziók alatt is javíthatók kell legyenek, a marsjárón az ehhez szükséges pótalkatrészek és eszközök rendelkezésre kell álljanak. \\
-A pótkerekek kivételével a nagyobb méretű és nem létfontosságú rendszerek tartalékmoduljainak elegendő a bázison elérhetőnek lenni. \\
-Mivel bizonyos komponensek csak kívülről hozzáférhetők és cserélhetők, ezért a kötőelemek és a hozzájuk tartozó szerszámok megtervezésénél elengedhetetlen szempont, hogy az asztronauták mozgása korlátozva és nehezítve lesz a szkafander által. Mivel a bázison nem lesz garázs, minden külső javításnak elvégezhetőnek kell lennie űrruhában.
+A jármű felépítését modulárisra kell tervezni, biztosítva, hogy meghibásodás esetén bármely alkatrész könnyen hozzáférhető és cserélhető legyen. (\reqid{J_1}) Ezen felül a vizsgálatokhoz szükséges eszközök újabb típusra történő leváltására is lehetőség kell legyen. (\reqid{J_2}) \\
+A létfenntartást, helyzetmeghatározást és kommunikációt biztosító rendszerek biztonsági okokból a missziók alatt is javíthatók kell legyenek, (\reqid{J_3}) a marsjárón az ehhez szükséges pótalkatrészek és eszközök rendelkezésre kell álljanak. (\reqid{J_4}) \\
+A pótkerekek kivételével a nagyobb méretű és nem létfontosságú rendszerek tartalékmoduljainak elegendő a bázison elérhetőnek lenni. (\reqid{J_5}) \\
+Mivel bizonyos komponensek csak kívülről hozzáférhetők és cserélhetők, ezért a kötőelemek és a hozzájuk tartozó szerszámok megtervezésénél elengedhetetlen szempont, hogy az asztronauták mozgása korlátozva és nehezítve lesz a szkafander által. Mivel a bázison nem lesz garázs, minden külső javításnak elvégezhetőnek kell lennie űrruhában. (\reqid{J_6})
 
 \section{Strapabírósági követelmények}
-A marsjárónak képesnek kell lennie a zord marsi körülményeknek ellenállni hosszú időn keresztül, mivel a marsi időjárási viszonyok különböző jelentős nehézségeket tatogatnak. Egyik ilyen nehézség amire fel kell készülni, a különböző sugárzások emelkedett szintje. A Mars nem rendelkezik olyan légkörrel és 
+A marsjárónak képesnek kell lennie a zord marsi körülményeknek ellenállni hosszú időn keresztül, mivel a marsi időjárási viszonyok különböző jelentős nehézségeket tartogatnak. Egyik ilyen nehézség amire fel kell készülni, a különböző sugárzások emelkedett szintje. (\reqid{T_1}) A Mars nem rendelkezik olyan légkörrel és 
 mágneses mezővel, mint a Föld, ezért fokozottan ügyelni kell a marsjáró megtervezésénél, hogy a sugárzás ne csökkenthesse az eszköz tervezett élettartamát. 
 
-A hőmérséklet tekintetében a járműnek fel kell készülnie a Marson uralkodó kifejezetten alacsony hőmérséklet elviselésére is. A felszíni hőmérséklet körülbelül  -120 és 20 °C között mozoghat, így fel kell készülni az extrém hideg okozta problémákra. A hőmérséklet ilyen mértékű ingadozásánál figyelni kell a folyamatos hőtágulás okozta kopás és elhasználódás minimalizálására is. Továbbá a kopáshoz hozzá járulhatnak a különböző rengések és homokviharok, amik a bolygó felszínén uralkodnak.
+A hőmérséklet tekintetében a járműnek fel kell készülnie a Marson uralkodó kifejezetten alacsony hőmérséklet elviselésére is. A felszíni hőmérséklet körülbelül  -120 és 20 °C között mozoghat, így fel kell készülni az extrém hideg okozta problémákra. (\reqid{T_2}) A hőmérséklet ilyen mértékű ingadozásánál figyelni kell a folyamatos hőtágulás okozta kopás és elhasználódás minimalizálására is. (\reqid{T_3}) Továbbá a kopáshoz hozzá járulhatnak a különböző rengések és homokviharok, amik a bolygó felszínén uralkodnak.
 
 Összességében az eszköz épségének és használhatóságának megőrzésére fel kell szerelni egy olyan védelemmel, ami egyszerre tud ellenállni szélsőséges hőmérsékleti viszonyoknak és különböző mechasnikai behatásoknak is.
 
@@ -413,11 +501,7 @@ A biztonságos misszióhoz elengedhetetlen a jármű kockázat analaízise, mely
 
 \subsection{Kockázat analízis}
 
-
-
 A kockázat analízis célja, hogy a \ref{subsystems} fejezetben részletezett alrendszerek közül melyek a kritkus rendszerek és mennyire fontosak. A legnyílvánvalóbb az energia ellátó alrendszer, hiszen ha nincsen enerigai hiába van létfentartó rendszer vagy bármi más. Ha nincsen energia, akkor nem várható el egyik alrendszertől, vagy tartalékrendszertől sem, hogy működjön.
-
-TODO: honna van energia, milyen energia hordozó, aztán tartalék akkumlátor, esetleg dízel generátor
 
 Miután a járműnek van redundás energiaforrása, a létfenntartó rendszert fontos megvizsgálni. Az tényként kezelendő, hogy a fedélzeten utazó űrhajósokat életben kell tartni, így ezen rendszereknek is szükséges tartalékot képezni, legalább a levegő- és vízkezelés illetve a fűtés szintjén. 
 
@@ -425,21 +509,15 @@ Miután a járműnek van redundás energiaforrása, a létfenntartó rendszert f
 
 A fent említett rendszereken túl, a harmadik a sorban a telekommunkációs rendszerek, hogy a kutatók tudjanak segítséget kérni a bázistól, vagy a másik rovertól amennyiben szükséges.
 
-TODO: rendszerek megvalósítása
-
-
-
-
-
 
 
 \begin{itemize}
-  \item Az esetleges katasztrófaesemények esetén is biztosítani kell a személyzet ->bázisra való visszajutását.
+  \item Az esetleges katasztrófaesemények esetén is biztosítani kell a személyzet ->bázisra való visszajutását. TODO:
 \end{itemize}
 \section{Utókövetelmények}
 \begin{itemize}
-  \item A marsjáró leszerelése és kezelése mint hulladék.
-  \item A marsjáró által okozott esetleges természeti károk helyreállítási terve.
+  \item \reqid{U_1} A marsjáró leszerelése és kezelése mint hulladék.
+  \item \reqid{U_2} A marsjáró által okozott esetleges természeti károk helyreállítási terve.
 \end{itemize}
 
 \chapter{Szójegyzék}
@@ -477,113 +555,4 @@ TODO: rendszerek megvalósítása
 
 
 
-\chapter{Overall Description TODO: REMOVE or REDESIGN}
-
-\textbf{Megjegyzések, tanácsok a feladatokkal kapcsolatban} 
-\begin{itemize}
-    \item A rövid feladatkiírások csupán egy ügyfél elsokörös, magas szintugondolatait mutatják arról, hogy mit szeretne, nem fedik le a részleteket, speciális eseteket, tartalmazhatnak ellentmondásokat...stb.
-    Ellentmondások keresése
-    \item alacsonyabb szintre fordítás
-    \item részletek
-    \item speciális esetek (pl. marsi vagy földi év?)
-    \item Puli marsjáró projekt utánajárás
-    \item A feladat része a feladat pontosítása, megbeszélése az ügyféllel. Adott esetben szükséges az ügyfél figyelmét felhívni arra, hogy valamire nem gondolt  ellentmondás van a kéréseiben  kérése egyéb okok miatt nem megvalósítható    
-    valamire nem gondolt kérése egyéb okok miatt nem megvalósítható
-    \item A feladat része az is, hogy egy funkció megvalósítására alternatívákat kínálunk    
-    alternatívák
-    \item Fontos, hogy az egyes döntéseket az ügyféllel egyeztetve, vele egyetértésben kell meghozni
-    kérdések előkészítése ügyfélnek
-    \item Fontos, hogy az egyes döntéseket az ügyféllel egyeztetve, vele egyetértésben kell meghozni
-    kérdések előkészítése ügyfélnek
-    \item A feladatok olyanok, hogy 3-3 csapat 1-1 közös célt valósít meg; emiatt az egyeztetés a csapatok között a közös részek tekintetében elkerülhetetlen
-    kapcsolat keresése Marsbázis projekttel
-    \item A feladatok olyanok, hogy 3-3 csapat 1-1 közös célt valósít meg; emiatt az egyeztetés a csapatok között a közös részek tekintetében elkerülhetetlen
-    \item Az egyeztetésnél a csapat egységesen lépjen fel az ügyféllel való kommunikációban. Kérdezhetnek többen is, de csapaton belüli esetleges kommunikációs hiányosságokat, inkonzisztenciákat, törésvonalakat ne mutassuk az ügyfélnek.
-    5.a + performansz előkészítése, elpróbálása (legyen legalább 10-12 perc aktív tervünk, és hagyjunk helyet az ügyfél válaszára, ha nem tudunk csak 7 percnyi kérdést felvetni, akkor marad következő alkalomra  az ügyfél pontosításból már invalidálódhatnak eddigi kérdéseink)
-    kérjük meg, hogy felvétel készülhessen, amiből scriptet vezessünk fel ide
-    ha ez nem lehetséges, akkor valaki pontosan gyorsan gépírja, jegyzetelje le
-    \item TODO: ??
-
-\end{itemize}                  
-
-
-
-
-
-
-
-
-
-\textbf{Mars-járó jármű}
-
-Készítsen specifikációt 2 Mars-járó (gravitacio, guruló, hegymászó, repülö, vagy lábakon járó?) járműre az alábbiakat figyelembe véve:
-
-\begin{itemize}
-    \item A jármű élettartama minimum 5 év (marsi vagy földi év?) legyen a Marsi körülmények (utánajárás hogy mivel számoljunk) között
-    \item ?? TODO?
-\end{itemize}
-
-A járműveknek maximum (minimum van? önjáró képesség igény-e?) 4 ember ellátását (oxigén, élelmezés, higiéniai szükségletek) kell biztosítaniuk a Mars-járó missziók időtartamára (milyen hosszú 1-1 misszió, mennyi idö telik el két misszió között karbantartási és ellátmánypótlási feladatokra)
-• A jármű élettartama minimum 5 év (marsi vagy földi év?) legyen a Marsi körülmények (utánajárás hogy mivel számoljunk) között
-• A járműnek lehetőséget kell biztosítania az űrhajósok kiszállására és beszállására
-közvetlenül a Marsra vagy a marsi bázisra (bázissal konzultálni)
-• A jármű képes legyen a misszióhoz szükséges segédfelszerelések szállítására, vizsgálatok
-elvégzésére, valamint a begyűjtött kőzetminták szállítására
-• Az eszközhöz csatlakozzon egy repülni képes, felderítő drón
-• A járműnek képesnek kell lennie kommunikálnia a Marsbázissal és a Mars körül keringő
-átjátszó műholdakkal valamint űrállomással
-• Végezzen kockázatanalízist és a szükséges alrendszereknél alkalmazzon redundanciát
-• A főbb alrendszereknek javíthatónak és cserélhetőnek kell lennie az ellátmány bázis
-alkatrészei alapján
-
-Todok
-
-todo: where to collaborate? 
-Robi: megcsinálom a pinned postot, a gyűjtéshez
-
-Potenciális kommunikációs ember: Robi
-
-
-Heninek: 
-töltőállomások a bázison
-Kiszállás hogy legyen?
-Kommunikacio
-Kérdések
-
-0. kérdés: van-e komunikáció az órán kívül?
-0.1: ha igen, akkor az csak 1 ember legyen-e?
-0.2: az órán is csak 1 ember kommunikáljon az ügyféllel? 
-bemehetünk-e a többi mars konzultációra megfigyelöként?
-csatlakozhatnak-e a nem élöben teamsen a távoli tagok?
-készíthetünk-e felvételt pl. teamssel?
-ha nem, akkor jegyzökönyvezni kell -> legalább 2 fö kell a személyesre
-backup: Józsi
-Van-e igény arra, hogy miképpen “járjon” a Mars-járó?
-Van-e minimum személyzet igény- legyen-e ön-távmüködö?
-Marsi vagy földi év? Földi
-Milyen hosszú 1-1 misszió, mennyi idö telik el két misszió között karbantartási és ellátmánypótlási feladatokra? (Ellatmanyurhajo csapat) 20 Nap, fél nap
-Öntöltés requirement-e?/Töltöállomások?(Bázissal kommunikálni.)
-Kell-e mennie nagyon hidegben? szélöseg -60 fok, de minden körülményt ki kell birni
-De ha sem, akkor kell-e fütést biztosítani? 22 fok
-Vagy a szkafander füt-e? igen
-Azt kell-e tölteni? igen
-Pótolni?
-Milyen javíthatósági képesség legyen? Pl. bázis, másik járó, önmaga? potalkatreszek, zsiliprendszer
-Hány ajtós legyen? Zsilip es bazis ajtó, ezek mas magasságba vannak
-Hogy képzeli el a felszerelések szállításat? 20 cmes kockák, kell tudni fúrni
-Milyen vizsgalatokra tart igenyt?kell furofej, hoparologtatasos vizsgalat, levágni megfelelő nagyságú 
-mekkora kozetek? oklomnyi/olympus. 800kg, masfel tonna
-Csak a Marsjáró irányitsa-e a dront? biztonsagi funkcioknak alapvető vezérlés, de ember is iranyítja Mekkora hataskor? 100m? 4,5 km és autómatikusan visszatalál
-Milyen alrendszereknek kell biztositanunk a redundanciajat? Milyen mertekben? Marsi vihart is tul kell-e elnie? igen, de nem kell alatta mintat venni
- ellatmanyurhajo rank is szallhat, vagy mindig a bazisra?
-Budget? 
-Qa
-Functional
-And nonfunctional
-Design
-Mit tudunk a megrendelőről, piaci vagy állami? 
-Milyen külső követelményeknek kell megfelelnünk? Todo: van-e személyszállítási ISO, ha igen mi, ennek meg kell-e felelni? 
-\section{Product Perspective}
-\section{User Classes and Characteristics}
-% add other chapters and sections to suit
 \end{document}
