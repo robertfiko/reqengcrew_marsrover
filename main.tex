@@ -184,7 +184,7 @@ A megvalósítás ütemtervet, a marsbázis csapattal egyeztetve, az alábbiak s
   \item A marsi körülményeknek ellenálló anyag ?titánium?, ebböl készül a külsö ?n? réteg. TODO:
 \end{itemize}
 
-\subsection{A jármű alrendszerei\label{subsytems}}
+\subsection{A jármű alrendszerei}\label{subsystems}
 
 A biztonságos és megbízható működés, illetve a modularitás elveinek betartása végett a 
 járművet alrendszerekre bontjuk.
@@ -422,7 +422,7 @@ A marsjáróhoz tartozik egy drón. Ez egy a földön hétköznapi emberek álta
 
 A drón repülésre képes, ehhez két koaxiális propellerrel van felszerelve. (\reqid{D_1}) Ezek használatosak helikoptereknél is, ugyanis megkönnyítik a manőverezést. Mind a hajtásért felelős szerkezet, mind maga a drón váza és egyéb építőegységei - hasonlóan a marsjáróhoz - olyan anyagokból kell készüljenek, amik kibírnak bármilyen misszió során tapasztalt szélsőséges marsi időjárási viszonyokat. (\reqid{D_2})\\
 
-A drón célja, hogy felvételeket készítsen a környezetről. Ehhez egy általános kamerával van felszerelve, amivel normál látható színtartományban képes felvételeket csinálni. (\reqid{D_3}) Ezen kívül szükséges felszerelése még egy infrakamera is. (\reqid{D_4}) A felvételeket elsődlegesen a drón továbbítja a marsjáróra, hogy azok azonnal feldolgozhatóak, vizsgálhatóak legyenek. A képanyagok tárolására rendelkezik egy saját átmeneti adattárolóval is, ami a FIFO TODO: cite módszeren alapul. (\reqid{D_5})\\
+A drón célja, hogy felvételeket készítsen a környezetről. Ehhez egy általános kamerával van felszerelve, amivel normál látható színtartományban képes felvételeket csinálni. (\reqid{D_3}) Ezen kívül szükséges felszerelése még egy infrakamera is. (\reqid{D_4}) A felvételeket elsődlegesen a drón továbbítja a marsjáróra, hogy azok azonnal feldolgozhatóak, vizsgálhatóak legyenek. A képanyagok tárolására rendelkezik egy saját átmeneti adattárolóval is, ami a FIFO módszeren alapul. (\reqid{D_5})\\
 
 Működését tekintve elektromos hajtású. (\reqid{D_6}) Irányítása történhet a marsjáróról manuálisan (\reqid{D_7}), azonban elsősorban önműködő. (\reqid{D_8}) Képes kell legyen magától eltalálni a felderíteni kívánt helyszínre, irányba, valamint onnan automatikusan visszajutni a marsjáróra.(\reqid{D_9}) A hatótávolsága 4500 méter. (\reqid{D_10})ALapvető biztonsági fukciókkal kell rendelkezzen, mint a levegőben való egyhelyben repülés (várakozás), egyensúlyozás. (\reqid{D_11})\\
 
@@ -430,42 +430,42 @@ Tárolása a marsjáró külsején történik egy akkumulátorral felszerelt dok
 
 \section{Humán követelmények}
 \begin{itemize}
-  \item A marsjárón szkafander nélküli környezetet kell biztosítani. (Szobahömérséklet, levegö.)
-  \item A marsjáron biztosítani kell a szkafanderek töltését ->bázissal egyezö módon.
-  \item A küldetésekhez elegendö ételek tárolása és ivóvíz biztosítása is feltétel.
-  Ezt a problémát két részre bontjuk, az első maga a tároló egység, amelyben az étel, és a szükséges ivóvíz van. A másik pedig a vizelet disztillálás, mellyel újrahasznosíthatjuk a vizeletet, izzadtságot.
+  \item \reqid{H_1} A marsjárón szkafander nélküli környezetet kell biztosítani. (Szobahömérséklet, levegö.)
+  \item \reqid{H_2} A marsjáron biztosítani kell a szkafanderek töltését, a bázissal egyezö módon.
+  \item \reqid{H_3} A küldetésekhez elegendö ételek tárolása és ivóvíz biztosítása
+  Ezt a problémát két részre bontjuk, az első maga a tároló egység, amelyben az étel, és a szükséges ivóvíz van. \reqid{H_4} A másik pedig a vizelet disztillálás, mellyel újrahasznosíthatjuk a vizeletet, izzadtságot. 
   \begin{itemize}
-    \item Vizelet disztilláló \\
+    \item Vizelet disztilláló \reqid{H_5} \\ 
     A NASA folyamatosan fejleszti azt az eszközt, amely a nemzetközi űrállomáson is megtalálható. A mai napig igyekeznek a vízszállítást a lehető legjobban csökkenteni. Egy ilyen disztillálóra lenne szükségünk tőlük, mely a legénység vízszükségleteinek 60\%-át tudja ellátni.
     Egy ilyennek a mérete 35-55 kilogram, térfogatban pedig 1 méter széles, 1,7 méter magas és fél méter a mélysége.
-    Ennek elhelyezését a marsjáróban a egy toalett méretű helységben helyezném el. Ez a helység egy külön modul.
+    Ennek elhelyezését a marsjáróban a egy toalett méretű helységben helyeznénk el. Ez a helység egy külön modul.
     Ez a gépezet naponta 9 kg vizeletet képes feldolgozni, ez kevesebb, mint amit 4 ember 16 óra alatt termel. A maradék vizeletüket el kell tárolni, hogy a későbbiekben felhasználhassák, akár a bázison, akár egy másik küldetésen. A vizelettárolást egy steril tartályban kell tárolni, amelynek hőmérséklete nem érheti el a 40 Celsius-fokot. Ennek megoldására, az újrahasznosítóval egy teremben kellene létrehozni egy toalett szerűséget, amely az említett tartályba gyűjti a vizeletet. Ezen tartálynak 380 literesnek kell lennie, hogy minden vizeletet megőrizzen, viszont hatalmas méretei miatt ezt 240 literesre tervezzük. A többi vizelet elveszhet. Ennek beszerzéséhez 400-500 euróra van szükség.
-    \item Tároló egység \\
+    \item Tároló egység \reqid{H_6} \\ 
     A tároló raktár egy külön helység lesz a marsjárón, melyben különleges polcok vannak, amelyeknek az ételt tartalmazó részein a hőmérséklet állítható. Emelett olyan módon tartalmazza az ételt, hogy az a marsjáró különböző szögű mozgásaikor se essen le a polcról. Maga a moduláris terem beszerzése/beszerelése 4500-5000 euró. Ezen terem méretei: 2m belmagasság, 3 méter széles és 2 méter mély. A polcoknak együtt 140 kilogramm étel eltárolását kell biztosítani. Ezen polcok a teremben alul és felül is csatlakozzanak a felülettel. Egy ilyen polcnak az előállítása és beszerelésének költsége 350-400 euró, mivel négy ilyen polc van, ezért 1600 euró. \\
     A teremben szükség van még egy nyílásra, amely a 80 literes ivóvíz tartályhoz csatlakozik, ez a víz 40\% annak amelyet 4 ember megiszik 20 nap alatt. A többi víz a vizelet újrahasznosítással állítódik elő. A vizes tartály beszerzése és beszerelése eggyüttesen 3000-3500 euróba kerül.  
   \end{itemize}  
-  \item Alapvetö higiénés és rekreációs szükségletek biztosítása feltétel.
+  \item Alapvetö higiénés és rekreációs szükségletek biztosítása feltétel. \reqid{H_7}
 \end{itemize}
 \section{Kutatási követelmények}
 \begin{itemize}
-  \item A marsjáróra mintavételezéshez szükséges egy fúrót felszerelni.
-  \item A begyüjött mintaásványokon kisebb laborvizsgálatokat el kell tudni végezni, mint pl. centrifugálás.
-  \item Z köbméter ásvány ->bázisra való visszaszállítását kell biztosítani.
+  \item \reqid{K_1} A marsjáróra mintavételezéshez szükséges egy fúrót felszerelni.
+  \item \reqid{K_2} A begyüjött mintaásványokon kisebb laborvizsgálatokat el kell tudni végezni, mint pl. centrifugálás.
+  \item \reqid{K_3} Z TODO: köbméter ásvány a ázisra való visszaszállítását kell biztosítani.
 \end{itemize}
 
 
 \section{Javíthatóság és fejleszthetőség}
 
-A jármű felépítését modulárisra kell tervezni, biztosítva, hogy meghibásodás esetén bármely alkatrész könnyen hozzáférhető és cserélhető legyen. Ezen felül a vizsgálatokhoz szükséges eszközök újabb típusra történő leváltására is lehetőség kell legyen. \\
-A létfenntartást, helyzetmeghatározást és kommunikációt biztosító rendszerek biztonsági okokból a missziók alatt is javíthatók kell legyenek, a marsjárón az ehhez szükséges pótalkatrészek és eszközök rendelkezésre kell álljanak. \\
-A pótkerekek kivételével a nagyobb méretű és nem létfontosságú rendszerek tartalékmoduljainak elegendő a bázison elérhetőnek lenni. \\
-Mivel bizonyos komponensek csak kívülről hozzáférhetők és cserélhetők, ezért a kötőelemek és a hozzájuk tartozó szerszámok megtervezésénél elengedhetetlen szempont, hogy az asztronauták mozgása korlátozva és nehezítve lesz a szkafander által. Mivel a bázison nem lesz garázs, minden külső javításnak elvégezhetőnek kell lennie űrruhában.
+A jármű felépítését modulárisra kell tervezni, biztosítva, hogy meghibásodás esetén bármely alkatrész könnyen hozzáférhető és cserélhető legyen. (\reqid{J_1}) Ezen felül a vizsgálatokhoz szükséges eszközök újabb típusra történő leváltására is lehetőség kell legyen. (\reqid{J_2}) \\
+A létfenntartást, helyzetmeghatározást és kommunikációt biztosító rendszerek biztonsági okokból a missziók alatt is javíthatók kell legyenek, (\reqid{J_3}) a marsjárón az ehhez szükséges pótalkatrészek és eszközök rendelkezésre kell álljanak. (\reqid{J_4}) \\
+A pótkerekek kivételével a nagyobb méretű és nem létfontosságú rendszerek tartalékmoduljainak elegendő a bázison elérhetőnek lenni. (\reqid{J_5}) \\
+Mivel bizonyos komponensek csak kívülről hozzáférhetők és cserélhetők, ezért a kötőelemek és a hozzájuk tartozó szerszámok megtervezésénél elengedhetetlen szempont, hogy az asztronauták mozgása korlátozva és nehezítve lesz a szkafander által. Mivel a bázison nem lesz garázs, minden külső javításnak elvégezhetőnek kell lennie űrruhában. (\reqid{J_6})
 
 \section{Strapabírósági követelmények}
-A marsjárónak képesnek kell lennie a zord marsi körülményeknek ellenállni hosszú időn keresztül, mivel a marsi időjárási viszonyok különböző jelentős nehézségeket tatogatnak. Egyik ilyen nehézség amire fel kell készülni, a különböző sugárzások emelkedett szintje. A Mars nem rendelkezik olyan légkörrel és 
+A marsjárónak képesnek kell lennie a zord marsi körülményeknek ellenállni hosszú időn keresztül, mivel a marsi időjárási viszonyok különböző jelentős nehézségeket tartogatnak. Egyik ilyen nehézség amire fel kell készülni, a különböző sugárzások emelkedett szintje. (\reqid{T_1}) A Mars nem rendelkezik olyan légkörrel és 
 mágneses mezővel, mint a Föld, ezért fokozottan ügyelni kell a marsjáró megtervezésénél, hogy a sugárzás ne csökkenthesse az eszköz tervezett élettartamát. 
 
-A hőmérséklet tekintetében a járműnek fel kell készülnie a Marson uralkodó kifejezetten alacsony hőmérséklet elviselésére is. A felszíni hőmérséklet körülbelül  -120 és 20 °C között mozoghat, így fel kell készülni az extrém hideg okozta problémákra. A hőmérséklet ilyen mértékű ingadozásánál figyelni kell a folyamatos hőtágulás okozta kopás és elhasználódás minimalizálására is. Továbbá a kopáshoz hozzá járulhatnak a különböző rengések és homokviharok, amik a bolygó felszínén uralkodnak.
+A hőmérséklet tekintetében a járműnek fel kell készülnie a Marson uralkodó kifejezetten alacsony hőmérséklet elviselésére is. A felszíni hőmérséklet körülbelül  -120 és 20 °C között mozoghat, így fel kell készülni az extrém hideg okozta problémákra. (\reqid{T_2}) A hőmérséklet ilyen mértékű ingadozásánál figyelni kell a folyamatos hőtágulás okozta kopás és elhasználódás minimalizálására is. (\reqid{T_3}) Továbbá a kopáshoz hozzá járulhatnak a különböző rengések és homokviharok, amik a bolygó felszínén uralkodnak.
 
 Összességében az eszköz épségének és használhatóságának megőrzésére fel kell szerelni egy olyan védelemmel, ami egyszerre tud ellenállni szélsőséges hőmérsékleti viszonyoknak és különböző mechasnikai behatásoknak is.
 
@@ -497,12 +497,12 @@ TODO: rendszerek megvalósítása
 
 
 \begin{itemize}
-  \item Az esetleges katasztrófaesemények esetén is biztosítani kell a személyzet ->bázisra való visszajutását.
+  \item Az esetleges katasztrófaesemények esetén is biztosítani kell a személyzet ->bázisra való visszajutását. TODO:
 \end{itemize}
 \section{Utókövetelmények}
 \begin{itemize}
-  \item A marsjáró leszerelése és kezelése mint hulladék.
-  \item A marsjáró által okozott esetleges természeti károk helyreállítási terve.
+  \item \reqid{U_1} A marsjáró leszerelése és kezelése mint hulladék.
+  \item \reqid{U_2}A marsjáró által okozott esetleges természeti károk helyreállítási terve.
 \end{itemize}
 
 \chapter{Szójegyzék}
