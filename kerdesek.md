@@ -1,3 +1,4 @@
-- A marsjáró mérete x*y*z.
-- A marsjáró kereke (?).
-- A marsi körülményeknek ellenálló anyag ?titánium?, ebböl készül a külsö ?n? réteg.
+- [ ] A marsjáró mérete x*y*z.
+- [ ] A telekommunkációhoz XYZ típusú, PRZ paraméterű antennákat és XYZ típusú jelfeldolgozó egységeket fogunk használni.
+- [ ] `\subsubsection{Energiaellátás}` úgy ahogy van hiányzik, vagy rossz helyen van (vagy máshol)
+- [ ] Z köbméter ásvány a bázisra való visszaszállítását kell biztosítani.
