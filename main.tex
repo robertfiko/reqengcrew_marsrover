@@ -7,6 +7,8 @@
 \usepackage{xparse}
 \usepackage{xcolor}
 
+
+
 \definecolorset{rgb/hsb/cmyk/gray}{}{}%
  {red,1,0,0/0,1,1/0,1,1,0/.3;%
   green,0,1,0/.33333,1,1/1,0,1,0/.59;%
@@ -34,7 +36,6 @@
 
 \usepackage[bookmarks=true]{hyperref}
 \hypersetup{
-    bookmarks=false,    % show bookmarks bar?
     pdftitle={Software Requirement Specification},    % title
     pdfauthor={Yiannis Lazarides},                     % author
     pdfsubject={TeX and LaTeX},                        % subject of the document
@@ -92,7 +93,11 @@ Szerednik László Tamás: @szeredniklaszlo\\
 
 \begin{document}
 
+
 \newcommand{\reqid}[1]{\colorbox{lightgray}{#1}}
+%\newcommand{\reqidc}[2]{
+%  \colorbox{lightgray}{#1_\arabic{#2}}
+%}
 \maketitle
 
 \tableofcontents
@@ -146,6 +151,25 @@ alkatrészei alapján
 \section{Követelmények számozása és rendszere}
 A követelmények egyedi azonosítására az alábbi formátumot használjuk \\ 
 \textbf{A_ID}, ahol \textbf{A} annak a részterületnek az azonosítója, ahova a követelmény tartozik, \textbf{ID} pedig az azon belüli követelmény azonosító.
+
+\subsection{Alkategóriák, részterületek}
+\begin{itemize}
+  \item \reqid{NS}: navigáció és szenzorok követelményei 
+  \item \reqid{F}: fúró követelményei
+  \item \reqid{R}: robotkar követelményei
+  \item \reqid{S}: szenzorok követelményei
+  \item \reqid{M}: meghajtás követelményei
+  \item \reqid{Z}: szkafander, űrruha követelményei
+  \item \reqid{D}: drón követelményei
+  \item \reqid{H}: humán követelmények
+  \item \reqid{K}: kutatási követelmények
+  \item \reqid{J}: javíthatósági követelmények
+  \item \reqid{T}: strapabírósági követelmények
+  \item \reqid{U}: utókövetelmények
+\end{itemize}
+
+
+
 
 \section{Megvalósítás ütemterve}
 
@@ -502,7 +526,7 @@ TODO: rendszerek megvalósítása
 \section{Utókövetelmények}
 \begin{itemize}
   \item \reqid{U_1} A marsjáró leszerelése és kezelése mint hulladék.
-  \item \reqid{U_2}A marsjáró által okozott esetleges természeti károk helyreállítási terve.
+  \item \reqid{U_2} A marsjáró által okozott esetleges természeti károk helyreállítási terve.
 \end{itemize}
 
 \chapter{Szójegyzék}
