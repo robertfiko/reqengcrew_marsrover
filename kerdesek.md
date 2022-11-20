@@ -1,0 +1,3 @@
+- A marsjáró mérete x*y*z.
+- A marsjáró kereke (?).
+- A marsi körülményeknek ellenálló anyag ?titánium?, ebböl készül a külsö ?n? réteg.
