@@ -204,8 +204,8 @@ A megvalósítás ütemtervet, a marsbázis csapattal egyeztetve, az alábbiak s
 \section{Mérnöki követelmények}
 \begin{itemize}
   \item A marsjáró mérete x*y*z. TODO:
-  \item A marsjáró kereke (?). TODO:
-  \item A marsi körülményeknek ellenálló anyag ?titánium?, ebböl készül a külsö ?n? réteg. TODO:
+  \item A marsjáró kereke a ref{drive} fejezetben van definiálva \
+  \item A marsi körülményeknek ellenálló anyag, védőréteg (\ref{strapabirosag} alapján)
 \end{itemize}
 
 \subsection{A jármű alrendszerei}\label{subsystems}
@@ -305,14 +305,15 @@ Ezek által megállapítható, hogy:
   \item alkalmasak-e a belső körülmények marsjáróban lévő emberek számára
 \end{itemize}
 
-\subsubsection{Meghajtás}
+\subsubsection{Meghajtás \label{drive}}
 
 Komponensek:
 
 \begin{itemize}
-    \item \reqid{M_1} Kerék:
+    \item \reqid{M_1} Kerék: 
         \begin{itemize}
             \item Levegőmentes kerék
+            \item Alumíniumból kell készíteni
             \item A tapadás érdekében kapcsokkal kell rendelkeznie
             \item A rugós tapadásért titánium külőket kell bele építeni
         \end{itemize}
@@ -401,24 +402,20 @@ Becslések és gyártás:
 
 \subsubsection{Létfenntartás}
 
-TODO: Req Id-k
+Természetesen az emberi személyzet végett, a létfenntartó rendszerek elengedhetetlenek. Vlevegő szűrő és széndioxid kivonó rendszerrel, illetve vízújrahasznosító rendszerrel fogjuk felszerelni. Az utóbbi képes a levegő páratartalmát kivonni, illetve vizeletet tisztítani, így végül fogyasztásra alkalmas ivóvizet kapunk. (ld. \reqid{H_5})
 
-Természetesen az emberi személyzet végett, a létfenntartó rendszerek elengedhetetlenek. XYZ típusú levegő szűrő és széndioxid kivonó rendszerrel és XYZ típusú vízújrahasznosító rendszerrel fogjuk felszerelni. Az utóbbi képes a levegő páratartalmát kivonni, illetve vizeletet tisztítani, így végül fogyasztásra alkalmas ivóvizet kapunk.
-
-Az asztronautáknak a megfelelő hőmérséklet biztosítására az XYZ típusú fűtő berendezést szereljük, mivel a marsi hőmörséklet nem haladja meg a 21 Celsius fokot, így fűtés biztosítása elegendő.
+Az asztronautáknak a megfelelő hőmérséklet biztosítására fűtő berendezést szerelünk, mivel a marsi hőmörséklet nem haladja meg a 21 Celsius fokot, így fűtés biztosítása elegendő.
 
 Forrás: https://www.weather.gov/fsd/mars
-TODO: cite
+
 
 \subsubsection{Telekommunikáció}
 
-TODO: Req Id-k
-
-A telekommunkációhoz XYZ típusú, PRZ paraméterű antennákat és XYZ típusú jelfeldolgozó egységeket fogunk használni.
+A telekommunkációhoz XYZ típusú, PRZ paraméterű antennákat és XYZ típusú jelfeldolgozó egységeket fogunk használni. TODO:
 
 Forrás: https://descanso.jpl.nasa.gov/DPSummary/MER\_article\_cmp20051028.pdf
 
-TODO: kérdés, bázissal kommunikációs frekvencia
+
 
 \subsubsection{Szkafander/űrruha és a mars járó kapcsolata}
 \begin{itemize}
@@ -432,9 +429,7 @@ TODO: kérdés, bázissal kommunikációs frekvencia
   \item \reqid{Z_6} Oxigén nyomás kritikus csökkenés esetén, vagy kritikus áramcsökkenés esetén azonnali visszatérés megkövetelése. Fel nem töltött szkafanderek esetén töltés azonnali megkövetelése, vagy kötelezö visszatérés. A humán biztonság megköveteli, hogy mindig legyen töltött szkafander evakuációhoz.
 \end{itemize}
 
-\subsubsection{Energiaellátás}
-
-TODO:
+\subsubsection{Energiaellátás} TODO:
 
 ötletek:
 - power
@@ -475,7 +470,7 @@ Tárolása a marsjáró külsején történik egy akkumulátorral felszerelt dok
 \begin{itemize}
   \item \reqid{K_1} A marsjáróra mintavételezéshez szükséges egy fúrót felszerelni.
   \item \reqid{K_2} A begyüjött mintaásványokon kisebb laborvizsgálatokat el kell tudni végezni, mint pl. centrifugálás.
-  \item \reqid{K_3} Z TODO: köbméter ásvány a ázisra való visszaszállítását kell biztosítani.
+  \item \reqid{K_3} Z köbméter ásvány a bázisra való visszaszállítását kell biztosítani. TODO:
 \end{itemize}
 
 
@@ -486,7 +481,7 @@ A létfenntartást, helyzetmeghatározást és kommunikációt biztosító rends
 A pótkerekek kivételével a nagyobb méretű és nem létfontosságú rendszerek tartalékmoduljainak elegendő a bázison elérhetőnek lenni. (\reqid{J_5}) \\
 Mivel bizonyos komponensek csak kívülről hozzáférhetők és cserélhetők, ezért a kötőelemek és a hozzájuk tartozó szerszámok megtervezésénél elengedhetetlen szempont, hogy az asztronauták mozgása korlátozva és nehezítve lesz a szkafander által. Mivel a bázison nem lesz garázs, minden külső javításnak elvégezhetőnek kell lennie űrruhában. (\reqid{J_6})
 
-\section{Strapabírósági követelmények}
+\section{Strapabírósági követelmények} \label{strapabirosag}
 A marsjárónak képesnek kell lennie a zord marsi körülményeknek ellenállni hosszú időn keresztül, mivel a marsi időjárási viszonyok különböző jelentős nehézségeket tartogatnak. Egyik ilyen nehézség amire fel kell készülni, a különböző sugárzások emelkedett szintje. (\reqid{T_1}) A Mars nem rendelkezik olyan légkörrel és 
 mágneses mezővel, mint a Föld, ezért fokozottan ügyelni kell a marsjáró megtervezésénél, hogy a sugárzás ne csökkenthesse az eszköz tervezett élettartamát. 
 
@@ -509,10 +504,8 @@ Miután a járműnek van redundás energiaforrása, a létfenntartó rendszert f
 
 A fent említett rendszereken túl, a harmadik a sorban a telekommunkációs rendszerek, hogy a kutatók tudjanak segítséget kérni a bázistól, vagy a másik rovertól amennyiben szükséges.
 
-
-
 \begin{itemize}
-  \item Az esetleges katasztrófaesemények esetén is biztosítani kell a személyzet ->bázisra való visszajutását. TODO:
+  \item Az esetleges katasztrófaesemények esetén is biztosítani kell a személyzet, bázisra való visszajutását.
 \end{itemize}
 \section{Utókövetelmények}
 \begin{itemize}
@@ -541,7 +534,7 @@ A fent említett rendszereken túl, a harmadik a sorban a telekommunkációs ren
   \item \textbf{szkafander}: Eredete az orosz \textit{szkafandr} szó. Jelentése: űrruha.
   \item \textbf{koaxiális propellerek}: Egy tengelyen egymás fölött elhelyezett két darab propeller, amik ellentétes irányba forognak. Ezzel nagyban javul a hajtás és manőverezés.
   \item \textbf{propeller}: Légcsavar. Repülőgépek, helikopterek és egyéb repülő eszközök (ezesetben drón) körében használt erőátviteli megoldás. A motor teljesítményét közvetíti a hordozó közegre (levegő).
-  \item \textbf{FIFO módszer}: "First in firts out", azaz amelyik adat (képfelvétel) előszür került tárolásra azt továbbítja / az vehető ki először.
+  \item \textbf{FIFO módszer}: "First in first out", azaz amelyik adat (képfelvétel) előszür került tárolásra azt továbbítja / az vehető ki először.
   \item \textbf{regolit}: Szilárd kérgű égitesteken a felszíni törmelékes, általában laza szerkezetű kőzetrétege. A talaj is a regolitnak nevezhető, de regolitról leginkább akkor beszélünk, ha a regolitréteg nem talajosodott.
   \item \textbf{geológia}: földtan
   \item \textbf{hőpárologtatás}: a kiásott lyuk mélyére egy hevítőrudat juttatnak, a hő hatására a kőzetben reakciók hajtódnak végre, anyagok válnak ki, amelyek vizsgálatával fontos információhoz juthatunk
