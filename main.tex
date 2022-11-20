@@ -228,16 +228,6 @@ TODO:
 
 \subsubsection{Meghajtás}
 
-Marsjáró révén, a meghajtás is fontos kérdés, TODO: meghajtásos kolléga
-
-Ötletek:
-
-- mobility
-
-  - the driving mechanism e.g. motors, enginges
-
-  - the (micro)controllers for them
-
 Komponensek:
 
 \begin{itemize}
@@ -247,21 +237,17 @@ Komponensek:
             \item Alumíniumból kell készíteni
             \item A tapadás érdekében kapcsokkal kell rendelkeznie
             \item A rugós tapadásért titánium külőket kell bele építeni
-            \item Kerekek száma:
-                \begin{itemize}
-                    \item TODO: Össz hány darab?
-                    \item TODO: Hány kerék meghajtású?
-                    \item TODO: Hány pótkerék szükséges?
-                \end{itemize}
         \end{itemize}
     \item Futómű:
         \begin{itemize}
-            \item TODO: Anyaga?
-            \item TODO: Terhetősége?
+            \item Fémből kell készíteni
+            \item Teherbírásának akkorának kell lenni, hogy elbírja a kocsi tömegét
         \end{itemize}
     \item Motor:
         \begin{itemize}
-            \item TODO: ?
+            \item Hidrogénmotor
+            \item Bázistól feltöltéskor vizet és energiát kapunk, a vizet a kapott energia segítségével kell oxigénre és hidrogénre bontani
+            \item A motor belsejében a hidrogént az oxigén segítségével elégetjük, a felszabaduló energiát használja a motor meghajtásra, a melléktermék vizet meg emberi fogyasztásra alkalmazható
         \end{itemize}
     \item Tank:
         \begin{itemize}
@@ -272,46 +258,40 @@ Komponensek:
             \item Feltölthető legyen a bázisról
             \item Legyen egy rendszer ami méri a tank az üzemanyagcellák töltöttségét
             \item Ez a rendszer értesítse a vezetőt, amikor a tank töltöttség félig van
-            \item Cellák fala olyan anyagból készüljön, amelyet nem rongál az üzemanyag
-            \item TODO: Cserélhetőnek kell-e lenni-e az üzemanyag celláknak?
-        \end{itemize}
-    \item Üzemanyag:
-        \begin{itemize}
-            \item TODO: ?
+            \item Az üzemanyagcellák dokkolva tölthetőnek kell lenniük
         \end{itemize}
     \item Közlekedés:
         \begin{itemize}
             \item El kell érnie a  25 km/h sebességet
             \item Képesnek kell lennie 20 nap alatt 20 km-t megtenni
-            \item TODO: Sebesség fokozatok?
-            \item TODO: Bevehető meredekség hajlásszöge?
-            \item TODO: Szükséges-e valamilyen speciális manőver, például oldalazva menés?
+            \item A bevehető meredekségének 20-30-osnak kell lennie
+            \item A járműnek képesnek kell lennie oldalazva közlekedni
         \end{itemize}
 \end{itemize}
-
 
 Becslések és gyártás:
 
 \begin{itemize}
     \item Kerék:
         \begin{itemize}
-            \item Beszerez: TODO: 
+            \item Beszerez:
                 \begin{itemize}
                     \item Titánium küllők: Total Titan Titanium
                     \item Aluminum: Cosmo Aluminum
                 \end{itemize}
+            \item Gyártás: mi gyártjuk
             \item Idő becslés: 2 hónap
             \item Pénz becslés: 450 AK
         \end{itemize}
     \item Tank:
         \begin{itemize}
-            \item Beszerez: TODO: 
+            \item Gyártás: delegáljuk a HCella cégnek
             \item Idő becslés: 1 hónap
             \item Pénz becslés: 100 AK
         \end{itemize}
     \item Motor:
         \begin{itemize}
-            \item Beszerez: TODO: 
+            \item Gyártás: delegáljuk a Massive Motor cégnek
             \item Előfeltétel: 
                 \begin{itemize}
                     \item Tank
@@ -321,18 +301,22 @@ Becslések és gyártás:
         \end{itemize}
     \item Futómű:
         \begin{itemize}
-            \item Beszerez: TODO: 
+            \item Beszerez:
+                \begin{itemize}
+                    \item Aluminum: Cosmo Aluminum
+                \end{itemize}
+            \item Gyártás: mi gyártjuk
             \item Előfeltétel: 
                 \begin{itemize}
                     \item Motor
                     \item Kerék
                 \end{itemize}
-            \item Idő becslés: 2 év
+            \item Idő becslés: 6 hónap
             \item Pénz becslés: 5500 AK
         \end{itemize}
     \item Összesített:
         \begin{itemize}
-            \item Idő becslés: 3 év, 3 hónap
+            \item Idő becslés: 1 év, 9 hónap
             \item Pénz becslés: 16050 AK
         \end{itemize}
 \end{itemize}
